@@ -24,8 +24,9 @@ module.exports = {
             {
                 title: 'JS知识',
                 collapsable: false,
+                path: '/js_study/',
                 children: [
-                    ['/js_study/', '单行及多行省略号']
+                    ['/', '单行及多行省略号']
                 ]
             },
             {
