@@ -33,7 +33,8 @@ module.exports = {
                 collapsable: false,
                 path: '/js_study/',
                 children: [
-                    ['/', '单行及多行省略号']
+                    ['/js_study/basic/数据类型.md', '数据类型'],
+                    ['/js_study/basic/this.md', 'this']
                 ]
             },
             {
@@ -41,6 +42,14 @@ module.exports = {
                 collapsable: false,
                 children: [
                     ['/css_study/', 'rem初始化']
+                ]
+            },
+            {
+                title: '算法',
+                collapsable: true,
+                path: '/algorithm',
+                children: [
+                    ['/', '算法']
                 ]
             }
         ]
