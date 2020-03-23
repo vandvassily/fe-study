@@ -46,3 +46,12 @@ obj
 person2
 obj
 
+myObject.num = 3;
+num = 4
+1
+3
+3
+4
+4
+
+

@@ -34,7 +34,11 @@ module.exports = {
                 path: '/js_study/',
                 children: [
                     ['/js_study/basic/数据类型.md', '数据类型'],
-                    ['/js_study/basic/this.md', 'this']
+                    ['/js_study/basic/this.md', 'this'],
+                    ['/js_study/basic/new.md', 'new的原理'],
+                    ['/js_study/basic/call apply bind.md', 'call apply bind'],
+                    ['/js_study/basic/原型.md', '原型'],
+                    ['/js_study/basic/EventLoop.md', 'EventLoop 事件循环'],
                 ]
             },
             {
