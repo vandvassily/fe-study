@@ -19,6 +19,28 @@ Cat.prototype.kind = 'rogdoll'
 var cat = new Cat();
 console.log(cat);
 
+function Person(){}
+
+var p = new Person()
+console.log(p.__proto__ === Person.prototype)
+console.log(Person.prototype.__proto__ === Object.prototype)
+
+console.log(p.__proto__.__proto__.__proto__ === null)
+
+var a = {}
+console.log(a.__proto__ === Object.prototype)
+
+// Object
+console.log(Person.__proto__ === Function.prototype)
+console.log(Object.__proto__ === Function.prototype)
+console.log(Function.__proto__ === Function.prototype)
+
+console.log(Function.prototype.__proto__ === Object.prototype)
+
+console.log(Object.prototype.__proto__ === null);
+
+console.log(Function.prototype.__proto__ === Object.prototype)
+
 
 // function Foo() {
 //     return 'foo';
