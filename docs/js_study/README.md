@@ -17,7 +17,9 @@
 - [ ] Event Loop 事件循环
 - [ ] promise
 - [ ] deepClone深拷贝
+- [ ] 节流防抖
 - [ ] virtual dom 虚拟dom以及diff算法
+- [ ] CMD AMD
 
 ## CSS知识
 
