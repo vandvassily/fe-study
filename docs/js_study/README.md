@@ -11,8 +11,8 @@
 - [ ] [call apply bind](basic/call%20apply%20bind.md)
 - [ ] [new的原理](basic/new.md)
 - [ ] [原型、原型链、继承](basic/原型.md)
-- [ ] 作用域和闭包
 - [ ] 执行上下文
+- [ ] 作用域和闭包
 - [ ] ES6
 - [ ] Event Loop 事件循环
 - [ ] promise
