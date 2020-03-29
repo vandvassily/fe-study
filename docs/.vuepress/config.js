@@ -49,6 +49,14 @@ module.exports = {
                 ]
             },
             {
+                title: '数据结构',
+                collapsable: true,
+                path: '/structure',
+                children: [
+                    ['/', '数据结构']
+                ]
+            },
+            {
                 title: '算法',
                 collapsable: true,
                 path: '/algorithm',
