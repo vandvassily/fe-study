@@ -6,8 +6,6 @@
 
 `apply()` 方法使用一个指定的 `this` 值和单独给出的一个包含多个参数的数组来调用一个函数。
 
-`bind()` 方法创建一个新的函数，在 `bind()` 被调用时，这个新函数的 `this` 被指定为 `bind()` 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。
-
 例子
 
 ```javascript
@@ -18,6 +16,23 @@ var func = function(arg1, arg2) {
 func.call(this, arg1, arg2); // 使用 call，参数列表
 func.apply(this, [arg1, arg2]) // 使用 apply，参数数组
 
+```
+
+`bind()` 方法创建一个新的函数，在 `bind()` 被调用时，这个新函数的 `this` 被指定为 `bind()` 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。
+传入 bind 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数
+
+```javascript
+function func(a, b, c) {
+    console.log(a, b, c);
+}
+var obj = {};
+var func2 = func.bind(obj, 3, 4);
+var func3 = func.bind(obj);
+
+func2(5, 6, 7);
+func3(5, 6, 7);
+// 3, 4, 5
+// 5, 6, 7
 ```
 
 :::tip
@@ -37,7 +52,6 @@ func.apply(this, [arg1, arg2]) // 使用 apply，参数数组
 
 ### 5. 调用父构造函数实现继承
 
-
 ## 手写实现
 
 ### call
@@ -49,30 +63,30 @@ Function.prototype.call2 = function (context) {
     context.fn = this;
 
     var args = [];
-    for(var i = 1, len = arguments.length; i < len; i++) {
+    for (var i = 1, len = arguments.length; i < len; i++) {
         args.push('arguments[' + i + ']');
     }
 
-    var result = eval('context.fn(' + args +')');
+    var result = eval('context.fn(' + args + ')');
 
-    delete context.fn
+    delete context.fn;
     return result;
-}
+};
 
 // 测试一下
 var value = 2;
 
 var obj = {
-    value: 1
-}
+    value: 1,
+};
 
 function bar(name, age) {
     console.log(this.value);
     return {
         value: this.value,
         name: name,
-        age: age
-    }
+        age: age,
+    };
 }
 
 bar.call2(null); // 2
@@ -90,22 +104,41 @@ Function.prototype.apply = function (context, arr) {
     var result;
     if (!arr) {
         result = context.fn();
-    }
-    else {
+    } else {
         var args = [];
         for (var i = 0, len = arr.length; i < len; i++) {
             args.push('arr[' + i + ']');
         }
-        result = eval('context.fn(' + args + ')')
+        result = eval('context.fn(' + args + ')');
     }
 
-    delete context.fn
+    delete context.fn;
     return result;
-}
+};
 ```
 
 ### bind
 
+```javascript
+Function.prototype.bind = function () {
+    var slice = [].slice;
+    var thatFunc = this,
+        thatArg = arguments[0];
+    var args = slice.call(arguments, 1);
+    if (typeof thatFunc !== 'function') {
+        // closest thing possible to the ECMAScript 5
+        // internal IsCallable function
+        throw new TypeError(
+            'Function.prototype.bind - ' +
+                'what is trying to be bound is not callable'
+        );
+    }
+    return function () {
+        var funcArgs = args.concat(slice.call(arguments));
+        return thatFunc.apply(thatArg, funcArgs);
+    };
+};
+```
 
 ## 参考
 

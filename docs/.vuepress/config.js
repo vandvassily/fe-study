@@ -63,7 +63,15 @@ module.exports = {
                 children: [
                     ['/', '算法']
                 ]
-            }
+            },
+            {
+                title: '正则',
+                collapsable: true,
+                path: '/regex',
+                children: [
+                    ['/', '正则']
+                ]
+            },
         ]
     }
 }
