@@ -20,4 +20,4 @@
 - [ ] 节流防抖
 - [ ] virtual dom 虚拟dom以及diff算法
 - [ ] CMD AMD
-- [ ] wesocket
+- [ ] websocket
