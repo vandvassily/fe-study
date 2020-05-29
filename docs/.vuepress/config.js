@@ -40,6 +40,7 @@ module.exports = {
                     ['/js_study/basic/new.md', 'new的原理'],
                     ['/js_study/basic/call apply bind.md', 'call apply bind'],
                     ['/js_study/basic/EventLoop.md', 'EventLoop 事件循环'],
+                    ['/js_study/basic/array.md', '数组方法和使用'],
                 ]
             },
             {

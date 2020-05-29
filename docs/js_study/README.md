@@ -13,11 +13,14 @@
 - [ ] [原型、原型链、继承](basic/原型.md)
 - [ ] 执行上下文
 - [ ] 作用域和闭包
+- [ ] [数组方法](basic/array.md)
 - [ ] ES6
 - [ ] Event Loop 事件循环
 - [ ] promise
 - [ ] deepClone深拷贝
 - [ ] 节流防抖
+- [ ] 柯里化
+- [ ] 函数式编程
 - [ ] virtual dom 虚拟dom以及diff算法
 - [ ] CMD AMD
 - [ ] websocket
