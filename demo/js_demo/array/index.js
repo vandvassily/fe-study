@@ -73,4 +73,32 @@ var obj1 = { a: 1 };
 var arr2 = ['3', 2, 4, obj1];
 console.log(arr2.indexOf(obj1));
 
+// Array.prototype.keys()
+var iterator = arr.keys()
+console.log(iterator);
+console.log(iterator.next());
+console.log([...iterator]);
+console.log(iterator.next());
+console.log([...iterator]);
+
+// Array.prototype.map()
+var newArr = arr.map(function(element, index){
+    return element * 2
+})
+console.log(newArr);
+// [2, 4, 6, 8, 2, 4, 2, 6]
+
+// Array.prototype.splice()
+console.log(arr);
+arr.splice(3, 0, 5)
+console.log(arr)
+
+arr.splice(3, 2, 5, 6, 7, 8)
+console.log(arr)
+var copyArr = arr.slice()
+arr.splice(3, 20)
+copyArr.splice(3)
+console.log(arr)
+console.log(copyArr)
+
 

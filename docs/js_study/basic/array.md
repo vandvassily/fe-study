@@ -108,6 +108,73 @@ var arr2 = ['3', 2, 4, obj1];
 console.log(arr2.indexOf(obj1));
 ```
 
+## Array.prototype.keys()
+
+方法返回一个包含数组中每个索引键的Array Iterator对象。
+
+```javascript
+var iterator = arr.keys()
+console.log(iterator);
+console.log(iterator.next());
+console.log([...iterator]);
+console.log(iterator.next());
+console.log([...iterator]);
+```
+
+## Array.prototype.map()
+
+创建一个新数组，其结果是该数组中的每个元素都调用一次提供的函数后的返回值。
+
+```javascript
+var newArr = arr.map(function(element, index){
+    return element * 2
+})
+console.log(newArr);
+// [2, 4, 6, 8, 2, 4, 2, 6]
+```
+
+## Array.prototype.push() pop()  shift() unshift()
+
+`push` 将一个或多个元素添加到数组的末尾，并返回该数组的新长度
+`pop` 从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。
+`shift` 从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。
+`unshift` 将一个或多个元素添加到数组的开头，并返回该数组的新长度(该方法修改原有数组)。
+
+## Array.prototype.slice()
+
+方法返回一个新的数组对象，这一对象是一个由 begin 和 end 决定的原数组的浅拷贝（包括 begin，不包括end）。原始数组不会被改变。
+
+```javascript
+console.log(arr.slice(0,3))
+// [1, 2, 3]
+console.log(arr.slice(2,4))
+// [3, 4]
+console.log(arr.slice(0))
+// [1, 2, 3, 4, "1", "2", "1", "3"]
+```
+
+## Array.prototype.splice()
+
+:::tip
+可以向数组中添加元素
+:::
+
+通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。
+
+```javascript
+console.log(arr);
+arr.splice(3, 0, 5)
+console.log(arr)
+
+arr.splice(3, 2, 5, 6, 7, 8)
+console.log(arr)
+var copyArr = arr.slice()
+arr.splice(3, 20)
+copyArr.splice(3)
+console.log(arr)
+console.log(copyArr)
+```
+
 ## Array.prototype.reduce()
 
 对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
