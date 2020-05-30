@@ -41,6 +41,22 @@ console.log(arr.every(function(element, index){
 // false
 ```
 
+## Array.prototype.some()
+
+测试数组中是不是至少有1个元素通过了被提供的函数测试。它返回的是一个Boolean类型的值。
+
+```javascript
+console.log('Array.prototype.some');
+console.log(arr.some(function (element, index) {
+    return element > 2
+}))
+// true
+console.log(arr.some(function (element, index) {
+    return element > 5
+}))
+// false
+```
+
 ## Array.prototype.filter()
 
 创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
@@ -175,9 +191,56 @@ console.log(arr)
 console.log(copyArr)
 ```
 
+## Array.prototype.reverse()
+
+将数组中元素的位置颠倒，并返回该数组。数组的第一个元素会变成最后一个，数组的最后一个元素变成第一个。该方法会改变原数组。
+
+```javascript
+console.log(arr);
+arr.splice(3, 0, 5)
+console.log(arr)
+
+arr.splice(3, 2, 5, 6, 7, 8)
+console.log(arr)
+var copyArr = arr.slice()
+arr.splice(3, 20)
+copyArr.splice(3)
+console.log(arr)
+console.log(copyArr)
+```
+
+## Array.prototype.sort()
+
+用原地算法对数组的元素进行排序，并返回数组。默认排序顺序是在将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的
+
+```javascript
+var arr4 = [1,3,2,6,5,'c','d','e','a','A']
+console.log(arr3.sort());
+console.log(arr4.sort());
+// 随机打乱
+console.log(arr4.sort(function(a,b) {
+    return Math.random() - 0.5
+}))
+console.log('A' > 'a')
+```
+
 ## Array.prototype.reduce()
 
 对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
+
+```javascript
+var arrReduce = [1, 2, 3, 4, 5];
+var count = 0;
+var reducer = function (accumulator, currentValue, index, array) {
+    count++;
+    return accumulator + currentValue;
+}
+console.log(arrReduce.reduce(reducer))
+console.log(count)
+count = 0;
+console.log(arrReduce.reduce(reducer, 0))
+console.log(count)
+```
 
 ## 参考
 

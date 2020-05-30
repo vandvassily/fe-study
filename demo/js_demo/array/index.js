@@ -19,6 +19,7 @@ console.log(Array.from(set));
 // [1, 2, 3, 4, "1", "2", "3"]
 
 // Array.prototype.entries()
+console.log('Array.prototype.entries()');
 var entries = arr.entries()
 console.log(entries);
 console.log(entries.next().value);
@@ -26,11 +27,22 @@ console.log(entries.next().value);
 console.log(entries.next().value);
 
 // Array.prototype.every()
-console.log(arr.filter(function (element, index) {
+console.log(arr.every(function (element, index) {
     return element > 0
 }))
 // true
 console.log(arr.every(function (element, index) {
+    return element > 5
+}))
+// false
+
+// Array.prototype.some()
+console.log('Array.prototype.some');
+console.log(arr.some(function (element, index) {
+    return element > 2
+}))
+// true
+console.log(arr.some(function (element, index) {
     return element > 5
 }))
 // false
@@ -82,7 +94,7 @@ console.log(iterator.next());
 console.log([...iterator]);
 
 // Array.prototype.map()
-var newArr = arr.map(function(element, index){
+var newArr = arr.map(function (element, index) {
     return element * 2
 })
 console.log(newArr);
@@ -100,5 +112,38 @@ arr.splice(3, 20)
 copyArr.splice(3)
 console.log(arr)
 console.log(copyArr)
+
+// Array.prototype.reverse()
+var arr3 = [1, 2, 3, 4, 5, { a: 1 }, { b: 2 }, 'd', 'c', 'e']
+console.log(arr3);
+arr3.reverse()
+console.log(arr3)
+
+// Array.prototype.sort()
+var arr4 = [1, 3, 2, 6, 5, 'c', 'd', 'e', 'a', 'A']
+console.log(arr3.sort());
+console.log(arr4.sort());
+// 随机打乱
+console.log(arr4.sort(function (a, b) {
+    return Math.random() - 0.5
+}))
+console.log('A' > 'a')
+
+// Array.prototype.toString()
+console.log(arr4.toString())
+console.log(arr3.toString())
+
+// Array.prototype.reduce()
+var arrReduce = [1, 2, 3, 4, 5];
+var count = 0;
+var reducer = function (accumulator, currentValue, index, array) {
+    count++;
+    return accumulator + currentValue;
+}
+console.log(arrReduce.reduce(reducer))
+console.log(count)
+count = 0;
+console.log(arrReduce.reduce(reducer, 0))
+console.log(count)
 
 
