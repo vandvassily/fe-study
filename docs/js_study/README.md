@@ -20,6 +20,7 @@
 - [ ] deepClone深拷贝
 - [ ] 节流防抖
 - [ ] 柯里化
+- [ ] 数组扁平化
 - [ ] 函数式编程
 - [ ] virtual dom 虚拟dom以及diff算法
 - [ ] CMD AMD
