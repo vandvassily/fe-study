@@ -15,11 +15,11 @@
 - [ ] 作用域和闭包
 - [ ] [数组方法](basic/array.md)
 - [ ] ES6
-- [ ] Event Loop 事件循环
+- [ ] [Event Loop 事件循环](basic/EventLoop.md)
 - [ ] promise
 - [ ] deepClone深拷贝
 - [ ] 节流防抖
-- [ ] 柯里化
+- [ ] [柯里化](basic/currying.md)
 - [ ] 数组扁平化
 - [ ] 函数式编程
 - [ ] virtual dom 虚拟dom以及diff算法
