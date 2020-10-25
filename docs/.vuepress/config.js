@@ -55,7 +55,7 @@ module.exports = {
                 collapsable: true,
                 path: '/structure',
                 children: [
-                    ['/', '数据结构']
+                    ['/structure', '数据结构']
                 ]
             },
             {
