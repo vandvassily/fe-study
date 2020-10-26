@@ -53,9 +53,9 @@ module.exports = {
             {
                 title: '数据结构',
                 collapsable: true,
-                path: '/structure',
+                path: '/structure/',
                 children: [
-                    ['/structure', '数据结构']
+                    ['/structure/复杂度分析(上).md', '复杂度分析(上)']
                 ]
             },
             {
