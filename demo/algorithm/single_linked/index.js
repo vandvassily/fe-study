@@ -3,7 +3,7 @@
  * @author: ZHS 
  * @Date: 2020-08-23 12:23:50 
  * @Last Modified by: ZHS
- * @Last Modified time: 2020-08-23 23:58:16
+ * @Last Modified time: 2020-08-27 20:44:56
  */
 
 /**
@@ -24,7 +24,6 @@ class Node {
         this.next = null
     }
 }
-
 
 class SingleLinked {
     constructor(){
@@ -153,8 +152,6 @@ singleLinked.display()
 console.log(singleLinked.findPrev(14));
 console.log(singleLinked.findPrev(16));
 console.log(singleLinked.deleteByValue(12));
-console.log(singleLinked.deleteByValue(13));
-console.log(singleLinked.deleteByValue(14));
 console.log(singleLinked.deleteByValue(15));
 // console.log(singleLinked)
 singleLinked.display()

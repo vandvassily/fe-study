@@ -55,7 +55,8 @@ module.exports = {
                 collapsable: true,
                 path: '/structure/',
                 children: [
-                    ['/structure/复杂度分析(上).md', '复杂度分析(上)']
+                    ['/structure/复杂度分析-上.md', '复杂度分析(上)'],
+                    ['/structure/复杂度分析-下.md', '复杂度分析(下)']
                 ]
             },
             {

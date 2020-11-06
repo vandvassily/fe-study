@@ -1,5 +1,6 @@
 // 八皇后问题
 let result = [];
+let index = 0;
 class Queen {
     constructor(row){
         this.row = row
@@ -38,7 +39,8 @@ class Queen {
     }
 
     printQueens(result){
-        console.log('/n')
+        index++
+        console.log(`第${index}个`)
         for (let row = 0; row < 8; ++row) {
             let log = '';
             for (let column = 0; column < 8; ++column) {
@@ -50,5 +52,4 @@ class Queen {
     }
 }
 
-
-new Queen(0);
+let queen = new Queen(0);
