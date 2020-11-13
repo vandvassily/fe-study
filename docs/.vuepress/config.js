@@ -68,6 +68,14 @@ module.exports = {
                 ]
             },
             {
+                title: 'leetcode',
+                collapsable: true,
+                path: '/leetcode',
+                children: [
+                    ['/leetcode/19.删除链表倒数第N个结点.md', '19.删除链表倒数第N个结点']
+                ]
+            },
+            {
                 title: '正则',
                 collapsable: true,
                 path: '/regex',
