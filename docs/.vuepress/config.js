@@ -83,6 +83,15 @@ module.exports = {
                     ['/', '正则']
                 ]
             },
+            {
+                title: 'Vue知识点',
+                collapsable: true,
+                path: '/vue',
+                children: [
+                    ['/', 'vue知识点']
+                    ['/lifeCircle', 'vue生命周期']
+                ]
+            },
         ]
     }
 }
