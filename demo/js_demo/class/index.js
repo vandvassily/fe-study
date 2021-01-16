@@ -1,50 +1,29 @@
 class Person {
-  constructor(name) {
-    this.name = name
-  }
+    constructor(name, sex) {
+        this.name = name;
+        this.sex = sex;
+    }
 
-  age = '12'
+    static say() {
+        console.log(`this is static say`)
+    }
 
-  gender = ''
-
-  _name = ''
-
-  get name() {
-    return this._name
-  }
-
-  set name(newName) {
-    this._name = newName
-    console.log(`new name is : ${newName}`)
-  }
-
-  sayName() {
-    console.log(this.name)
-  }
-
-  static say() {
-    console.log(`say`)
-  }
+    sayName(){
+        console.log(`my name is ${this.name}`)
+    }
 }
 
-let person = new Person('小明')
+class Son extends Person {
+    constructor(name, sex){
+        super(name, sex)
+    }
 
-function Parent(name) {
-  this.name = name
+    schoolYear = 0
+
+    sonSayName(){
+        console.log(`son say his name is ${this.name}`);
+    }
 }
 
-Parent.prototype.getName = function() {
-  console.log(this.name)
-}
-
-function Child(name, age) {
-  Parent.call(this, name)
-  this.age = age
-}
-
-Child.prototype = Object.create(Parent.prototype)
-Child.prototype.constructor = Child
-
-var child1 = new Child('kevin', '18')
-
-console.log(child1)
+let son = new Son('xiaoming', '16')
+console.log(son)
