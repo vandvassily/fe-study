@@ -70,7 +70,7 @@ module.exports = {
             {
                 title: 'leetcode',
                 collapsable: true,
-                path: '/leetcode',
+                path: '/leetcode/',
                 children: [
                     ['/leetcode/19.删除链表倒数第N个结点.md', '19.删除链表倒数第N个结点']
                 ]
@@ -78,20 +78,18 @@ module.exports = {
             {
                 title: '正则',
                 collapsable: true,
-                path: '/regex',
+                path: '/regex/',
                 children: [
-                    ['/', '正则']
                 ]
             },
             {
                 title: 'Vue知识点',
                 collapsable: true,
-                path: '/vue',
+                path: '/vue/',
                 children: [
-                    ['/', 'vue知识点']
-                    ['/lifeCircle', 'vue生命周期']
+                    ['/vue/lifeCircle.md', 'vue生命周期']
                 ]
-            },
+            }
         ]
     }
 }
