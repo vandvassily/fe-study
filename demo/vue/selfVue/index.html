@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div id="app">{{message}}</div>
+  </head>
+  <body>
+    <div id="app">
+      <div v-modal="say" on:click="say">{{msg}}</div>
+      <input type="text" v-model="msg">
+      <div>{{name}}</div>
+    </div>
     <div id="fragment">
-        <div>{{name}}</div>
-        <div>gender</div>
-        <div>age</div>
+      <div>{{name}}</div>
+      <div>{{gender}}</div>
+      <div>{{obj.name}}</div>
+      <div>age</div>
     </div>
     <script src="./dep.js"></script>
     <script src="./compile.js"></script>
@@ -18,5 +23,5 @@
     <script src="./observe.js"></script>
     <script src="./watcher.js"></script>
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>
