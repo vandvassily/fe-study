@@ -3,15 +3,20 @@
  *
  * [70] 爬楼梯
  */
-
 // @lc code=start
+const map = {};
 /**
  * @param {number} n
  * @return {number}
  */
+var climbStairs = function (n) {
+    if (map[n]) return map[n];
+    if (n === 1) return 1;
+    if (n === 2) return 2;
 
-var climbStairs = function(n, a1 = 1, a2 = 1) {
-  if (n === 1 || n === 0) return a1
-  return climbStairs(n - 1, a1 + a2, a1)
-}
+    map[n] = climbStairs(n - 1) + climbStairs(n - 2);
+
+    return map[n];
+};
+
 // @lc code=end

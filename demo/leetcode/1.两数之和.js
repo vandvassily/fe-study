@@ -10,21 +10,15 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
+var twoSum = function (nums, target) {
     let map = {};
-    let currentValue;
-    let otherValue;
+
     for (let i = 0; i < nums.length; i++) {
-        currentValue = nums[i];
-        otherValue = target - currentValue
-        if (map[otherValue] && map[otherValue] != i + 1) {
-            return [map[otherValue] - 1, i]
+        let value = target - nums[i];
+        if (typeof map[value] !== 'undefined') {
+            return [map[value], i];
         }
-        else {
-            map[currentValue] = i + 1;
-        }
-        
+        map[nums[i]] = i;
     }
 };
 // @lc code=end
-
