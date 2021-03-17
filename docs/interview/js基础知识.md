@@ -228,3 +228,51 @@ addEventListener方法具有第三个可选参数useCapture，其默认值为fal
 ## 23. DOM 操作——怎样添加、移除、移动、复制、创建和查找节点？
 
 // TODO:
+
+## 24. js数组和字符串有哪些原生方法,列举一下
+
+JS数组
+    push 尾部添加一个元素
+    pop 移除最后一个元素，并返回
+    shift 删除第一个元素，并返回
+    unshift 数组开头添加一个元素
+    splice 用于插入、删除或替换数组的元素
+    slice 从数组中返回选定的元素
+    concat 合并数组
+    join 数组合并为一个字符串，以指定的分隔符
+    toString 数组字符串
+    sort 排序（从小到大，ASCII码）
+    indexOf 返回索引
+    forEach 循环遍历数组
+    map 循环遍历数组，返回新的数组
+
+// TODO:
+
+字符串
+
+## 25. 常用的正则表达式
+
+// TODO:
+
+## 26. Ajax 是什么? 如何创建一个 Ajax？
+
+异步通信的方法，由JS脚本向服务器发出请求，获取服务器响应后，局部更新网页内容
+
+// TODO:
+// 手写实现
+
+// promise封装
+
+## 27. js 延迟加载的方式有哪些？
+
+// TODO:
+
+## 28. 谈谈你对模块化开发的理解？
+
+
+## 29. js 的几种模块规范？
+
+commonJS
+AMD require
+CMD seajs
+ES6
