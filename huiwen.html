@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 暴力优化
+            var longestPalindrome = function(s) {
+                if (s.length == 1) return s;
+                let res = s.charAt(0);
+
+                for (let currentNum = 2; currentNum <= s.length; currentNum++) {
+                    for (let j = 0; j <= s.length - currentNum; j++) {
+                        if (isPalindrome(s, j, j + currentNum - 1)) {
+                            res = s.substring(j, j + currentNum);
+                        }
+
+                        if (res.length === currentNum) {
+                            break;
+                        }
+                    }
+                }
+
+                return res;
+            };
+
+            /**
+             *
+             * @param {string} str
+             * @param {number} leftIndex
+             * @param {number} rightIndex
+             */
+            function isPalindrome(str, leftIndex, rightIndex) {
+                while (leftIndex < rightIndex) {
+                    if (str.charAt(leftIndex) !== str.charAt(rightIndex)) {
+                        return false;
+                    }
+                    leftIndex++;
+                    rightIndex--;
+                }
+
+                return true;
+            }
+            console.log(longestPalindrome(''));
+        </script>
+    </body>
+</html>
