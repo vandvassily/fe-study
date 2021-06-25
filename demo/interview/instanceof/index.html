@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instanceof</title>
+</head>
+
+<body>
+
+    <script>
+        // instanceof的实现
+        function isInstanceOf(obj, right) {
+            const instanceProto = obj.__proto__
+            if(!instanceProto) return false;
+            let proto = right.prototype
+            console.log(instanceProto.constructor.name);
+            console.log(proto.constructor.name);
+
+            while (proto) {
+                if (instanceProto === proto) {
+                    return true
+                }
+                proto = proto.__proto__
+            }
+
+            return false
+        }
+
+        var arr = [1, 2, 3]
+        console.log(isInstanceOf({}, Array));
+    </script>
+</body>
+
+</html>

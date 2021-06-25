@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test">按钮</div>
+    <script>
+        // 防抖
+        function debounce(fn, timeout) {
+            var timer;
+
+            return function (...args) {
+                if (timer) clearTimeout(timer);
+                timer = setTimeout(function () {
+                    fn(...args);
+                    timer = null;
+                }, timeout);
+            };
+        }
+        // 带立即执行
+        function debounce2(fn, timeout, immediate) {
+            var timer;
+
+            return function (...args) {
+                var context = this;
+                if (timer) clearTimeout(timer);
+                if (immediate) {
+                    fn.apply(context, args);
+                    immediate = false
+                    timer = setTimeout(function () {
+                        timer = null;
+                    }, timeout);
+                } else {
+                    timer = setTimeout(function () {
+                        fn.apply(context, args);
+                        timer = null;
+                    }, timeout);
+                }
+            };
+        }
+
+        var test = debounce2(function () {
+            console.log(123)
+        }, 1000, true)
+
+        let $test = document.getElementById('test')
+
+        $test.addEventListener('click', function () {
+            test();
+        }, false)
+
+
+    </script>
+</body>
+
+</html>
