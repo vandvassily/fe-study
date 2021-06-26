@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .container {
+                overflow: hidden;
+            }
+            .left {
+                float: left;
+                width: 150px;
+                padding-bottom: 999px;
+                margin-bottom: -999px;
+                background-color: aquamarine;
+            }
+            .main {
+                margin-left: 150px;
+                background-color: antiquewhite;
+                /* overflow: auto; */
+            }
+
+            .triangle {
+                width: 0;
+                border-top-color: #ffc107;
+                border-right-color: #00bcd4;
+                border-bottom-color: #e26b6b;
+                border-left-color: #cc7cda;
+                border-width: 50px;
+                border-style: solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left">left</div>
+            <div class="main">main<br />1<br />2<br />3</div>
+        </div>
+        <div class="triangle"></div>
+    </body>
+</html>
