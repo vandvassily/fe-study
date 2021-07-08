@@ -89,6 +89,14 @@ module.exports = {
                 children: [
                     ['/vue/lifeCircle.md', 'vue生命周期']
                 ]
+            },
+            {
+                title: '其他',
+                collapsable: true,
+                path: '/other/',
+                children: [
+                    ['/other/indexedDB.md', '浏览器数据库indexedDB']
+                ]
             }
         ]
     }

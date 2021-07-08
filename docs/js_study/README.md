@@ -11,7 +11,7 @@
 - [ ] [call apply bind](basic/call%20apply%20bind.md)
 - [ ] [new的原理](basic/new.md)
 - [ ] [原型、原型链、继承](basic/原型.md)
-- [ ] 执行上下文
+- [ ] [执行上下文](basic/执行上下文.md)
 - [ ] 作用域和闭包
 - [ ] [数组方法](basic/array.md)
 - [ ] ES6
