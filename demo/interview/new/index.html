@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function create(obj, ...args) {
+                var newObj = new Object();
+
+                newObj.__proto__ = obj.prototype;
+
+                var ret = obj.apply(newObj, args);
+
+                return ret instanceof Object ? ret : newObj;
+            }
+
+            function Parent(name, age) {
+                this.name = name;
+                this.age = age
+            }
+
+            Parent.prototype.say = function() {
+                console.log(`my name is ${this.name}`)
+            }
+
+            var person = create(Parent, '小红', 12)
+            console.log(person);
+            person.say()
+            
+        </script>
+    </body>
+</html>
