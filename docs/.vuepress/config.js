@@ -96,6 +96,7 @@ module.exports = {
                 path: '/other/',
                 children: [
                     ['/other/indexedDB.md', '浏览器数据库indexedDB']
+                    ['/other/vuePress.md', 'vuePress使用']
                 ]
             }
         ]

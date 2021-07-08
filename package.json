@@ -4,10 +4,13 @@
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs",
+    "dev": "npm run docs:dev",
     "docs:build": "vuepress build docs"
   },
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
+    "less": "^3.13.1",
+    "less-loader": "7.3.0",
     "vuepress": "^1.0.3"
   }
 }
