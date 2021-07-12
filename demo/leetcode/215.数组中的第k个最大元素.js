@@ -10,48 +10,40 @@
  * @param {number} k
  * @return {number}
  */
-var findKthLargest = function (nums, k) {
-    // quickSort(nums);
-    return quickSortC(nums, 0, nums.length - 1, nums.length - k)
+var findKthLargest = function(nums, k) {
+    if (nums.length === 1) return nums[0];
+    return quick_sort_c(nums, 0, nums.length - 1, nums.length - k);
 };
 
-// /**
-// * 快速排序
-// * @param {Array} arr 
-// */
-// function quickSort(arr) {
-//     quickSortC(arr, 0, arr.length - 1)
-//     return arr;
-// }
-
-function quickSortC(arr, left, right, keyIndex) {
-    debugger
-    if (left >= right) return;
-
-    const pivot = partition(arr, left, right);
-    if (pivot === keyIndex) {
-        return arr[keyIndex]
+function quick_sort_c(arr, left, right, k) {
+    const p = randomPartition(arr, left, right);
+    if (k === p) {
+        return arr[p];
+    } else {
+        return p < k
+            ? quick_sort_c(arr, p + 1, right, k)
+            : quick_sort_c(arr, left, p - 1, k);
     }
-    else {
-        return pivot > keyIndex ? quickSortC(arr, left, pivot - 1, keyIndex) : quickSortC(arr, pivot + 1, right, keyIndex)
-    }
+}
+
+function randomPartition(arr, left, right) {
+    const i = parseInt(Math.random() * (right - left)) + 1;
+    console.log(i + ' ' + right);
+    [arr[i], arr[right]] = [arr[right], arr[i]];
+    partition(arr, left, right);
 }
 
 function partition(arr, left, right) {
-    const pivot = left
-    let index = left + 1;
-
+    let pivot = left;
+    let index = pivot + 1;
     for (let i = index; i <= right; i++) {
         if (arr[i] < arr[pivot]) {
-            [arr[i], arr[index]] = [arr[index], arr[i]]
+            [arr[i], arr[index]] = [arr[index], arr[i]];
             index++;
         }
-    };
-
-    [arr[index - 1], arr[pivot]] = [arr[pivot], arr[index - 1]]
-
-    return index - 1
+    }
+    [arr[pivot], arr[index - 1]] = [arr[index - 1], arr[pivot]];
+    return index - 1;
 }
 
 // @lc code=end
-

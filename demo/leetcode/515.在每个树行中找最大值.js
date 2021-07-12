@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=102 lang=javascript
+ * @lc app=leetcode.cn id=515 lang=javascript
  *
- * [102] 二叉树的层序遍历
+ * [515] 在每个树行中找最大值
  */
 
 // @lc code=start
@@ -15,22 +15,23 @@
  */
 /**
  * @param {TreeNode} root
- * @return {number[][]}
+ * @return {number[]}
  */
-var levelOrder = function(root) {
+var largestValues = function(root) {
     if (!root) return [];
     const ret = [];
     let stack = [root];
-    while (stack.length > 0) {
+    while (stack.length) {
+        let rowMax = stack[0].val;
+        const len = stack.length;
         let temp = [];
-        let levelRes = [];
-        for (let i = 0; i < stack.length; i++) {
+        for (let i = 0; i < len; i++) {
             const cur = stack[i];
-            levelRes.push(stack[i].val);
+            rowMax = Math.max(rowMax, cur.val);
             if (cur.left) temp.push(cur.left);
             if (cur.right) temp.push(cur.right);
         }
-        ret.push(levelRes);
+        ret.push(rowMax);
         stack = temp;
     }
 

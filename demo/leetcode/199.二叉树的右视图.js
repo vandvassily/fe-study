@@ -18,27 +18,52 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    if(root === null) return [];
+    if (!root) return [];
     const ret = [];
-    let p = [];
-    p.push(root);
-    while (p.length > 0) {
+    let stack = [root];
+    while (stack.length > 0) {
         let temp = [];
-        let temp2 = [];
-        for (let i = 0; i < p.length; i++) {
-            const item = p[i];
-            temp2.push(item.val);
-            if (item.left) {
-                temp.push(item.left);
-            }
-            if (item.right) {
-                temp.push(item.right);
-            }
+        let levelRes = [];
+        for (let i = 0; i < stack.length; i++) {
+            const cur = stack[i];
+            levelRes.push(stack[i].val);
+            if (cur.left) temp.push(cur.left);
+            if (cur.right) temp.push(cur.right);
         }
-        ret.push(temp2[temp2.length - 1]);
-        p = temp;
+        ret.push(levelRes[levelRes.length - 1]);
+        stack = temp;
     }
 
     return ret;
-};
+}
+
 // @lc code=end
+
+// 先层序遍历，在循环遍历找出最后一个
+// var rightSideView = function(root) {
+//     const order = levelOrder(root);
+//     const ret = [];
+//     for (let i = 0; i < order.length; i++) {
+//         ret.push(order[i][order[i].length - 1]);
+//     }
+//     return ret;
+// };
+// var levelOrder = function(root) {
+//     if (!root) return [];
+//     const ret = [];
+//     let stack = [root];
+//     while (stack.length > 0) {
+//         let temp = [];
+//         let levelRes = [];
+//         for (let i = 0; i < stack.length; i++) {
+//             const cur = stack[i];
+//             levelRes.push(stack[i].val);
+//             if (cur.left) temp.push(cur.left);
+//             if (cur.right) temp.push(cur.right);
+//         }
+//         ret.push(levelRes);
+//         stack = temp;
+//     }
+
+//     return ret;
+// };

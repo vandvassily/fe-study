@@ -1,43 +1,713 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="throttle">throttle click</button>
+        <button id="debounce">debounce click</button>
+        <script>
+            function ajax(urls, method, data, callback) {
+                let xhr = new XMLHttpRequest();
+                xhr.open(method, urls);
+                xhr.send(data);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status <= 300) {
+                            let data = JSON.parse(xhr.response);
+                            callback && callback(data);
+                        }
+                    }
+                };
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+            // ajax(
+            //     'http://113.108.110.61:62181/mobile-nldmx-easyview-api/isg/token',
+            //     'post',
+            //     {},
+            //     (res) => {
+            //         console.log(res);
+            //     }
+            // );
+        </script>
 
-<body>
-    <script>
-        function ajax(url, method, body, headers) {
-            return new Promise((resolve, reject) => {
-                let xhr = new XMLHttpRequest()
-                debugger
+        <script>
+            function deepClone(target, hashMap = new Map()) {
+                if (target instanceof Date) return new Date(target);
+                if (target instanceof RegExp) return new RegExp(target);
+                if (typeof target !== 'object' || target === null)
+                    return target;
 
-                xhr.open(method, url)
+                let newObj = new target.constructor();
 
-                for (const key in headers) {
-                    xhr.setRequestHeader(key, headers[key])
+                if (hashMap.has(target)) return hashMap.get(target);
+
+                hashMap.set(target, newObj);
+
+                for (const key in target) {
+                    if (Object.hasOwnProperty.call(target, key)) {
+                        newObj[key] = deepClone(target[key], hashMap);
+                    }
+                }
+                return newObj;
+            }
+
+            var data = {
+                a: 1,
+                b: 2,
+                c: {
+                    name: 'c',
+                },
+                d: new Date(),
+                e: new RegExp(/^\$/g),
+                f: function() {
+                    console.log(123);
+                },
+                g: {},
+                e: [1, 2, 3, 4, 5],
+            };
+
+            data.g = {};
+            data.g.data = data;
+
+            console.log(data);
+            console.log(deepClone(data));
+        </script>
+
+        <script>
+            function throttle(func, timeout) {
+                let previousTime = 0;
+
+                return function() {
+                    const now = new Date().getTime();
+
+                    if (now - previousTime < timeout) {
+                        return;
+                    } else {
+                        setTimeout(() => {
+                            func && func();
+                        }, timeout);
+                        previousTime = now;
+                    }
+                };
+            }
+
+            function debounce(func, time) {
+                let timer = null;
+                return function() {
+                    if (timer) {
+                        clearTimeout(timer);
+                    }
+                    timer = setTimeout(function() {
+                        func && func();
+                        timer = null;
+                    }, time);
+                };
+            }
+
+            let say = throttle(function() {
+                console.log(123);
+            }, 1000);
+            let say2 = debounce(function() {
+                console.log(321);
+            }, 1000);
+            let $btn = document.getElementById('throttle');
+            let $btn2 = document.getElementById('debounce');
+            $btn.addEventListener(
+                'click',
+                function() {
+                    say();
+                },
+                false
+            );
+            $btn2.addEventListener(
+                'click',
+                function() {
+                    say2();
+                },
+                false
+            );
+        </script>
+
+        <script>
+            function createNew(func, ...args) {
+                let obj = new Object();
+                obj.__proto__ = func.prototype;
+
+                let result = func.apply(obj, args);
+
+                return typeof result === 'object' && result !== null
+                    ? result
+                    : obj;
+            }
+
+            function Person(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            console.log(new Person('小明', 18));
+            console.log(createNew(Person, '小明', 18));
+        </script>
+
+        <script>
+            function myInstance(son, father) {
+                const fatherProto = father.prototype;
+                let sonProto = son.__proto__;
+                while (sonProto) {
+                    if (sonProto === fatherProto) {
+                        return true;
+                    }
+
+                    sonProto = sonProto.__proto__;
                 }
 
-                xhr.onreadystatechange = () => {
-                    if (xhr.readyState == 4) {
-                        if (xhr.status >= 200 && xhr.status < 300) {
-                            resolve(xhr.response)
+                return false;
+            }
+
+            let arr = [1, 2, 3, 4, 5];
+            console.log(myInstance(arr, Array));
+        </script>
+
+        <script>
+            function create(proto) {
+                function F() {}
+                F.prototype = proto;
+                return new F();
+            }
+        </script>
+
+        <script>
+            // 寄生组合继承
+            function People(name) {
+                this.name = name;
+            }
+
+            People.prototype.say = function() {
+                console.log(`名字是${this.name}`);
+            };
+
+            function Student(name, school) {
+                People.call(this, name);
+                this.school = school;
+            }
+
+            Student.prototype = Object.create(People.prototype);
+            Student.prototype.constructor = Student;
+
+            const std = new Student('小明', '一中');
+            console.log(std);
+            std.say();
+        </script>
+
+        <script>
+            Promise.all2 = function(arrs) {
+                if (!Array.isArray(arrs)) {
+                    throw new Error('参数错误');
+                }
+
+                return new Promise((resolve, reject) => {
+                    let total = arrs.length;
+                    let resolved = 0;
+                    let resolvedResult = [];
+
+                    for (let i = 0; i < total; i++) {
+                        Promise.resolve(arrs[i])
+                            .then((res) => {
+                                resolvedResult[i] = res;
+                                resolved++;
+
+                                if (resolved === total) {
+                                    resolve(resolvedResult);
+                                }
+                            })
+                            .catch((rej) => {
+                                reject(rej);
+                            });
+                    }
+                });
+            };
+
+            function timer(num) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(num);
+                    }, Math.random() * num * 1000);
+                });
+            }
+
+            console.time('start');
+            const requestArr = [timer(1), timer(2), timer(3), timer(4)];
+
+            Promise.all2(requestArr).then((arr) => {
+                console.log(arr);
+                console.timeEnd('start');
+            });
+
+            Promise.race2 = function(arrs) {
+                if (!Array.isArray(arrs)) {
+                    throw new Error('参数错误');
+                }
+
+                return new Promise((resolve, reject) => {
+                    for (let i = 0; i < arrs.length; i++) {
+                        Promise.resolve(arrs[i])
+                            .then((res) => {
+                                resolve(res);
+                            })
+                            .catch((rej) => {
+                                reject(rej);
+                            });
+                    }
+                });
+            };
+
+            // Promise.race2(requestArr).then((arr) => {
+            //     console.log(arr);
+            // });
+        </script>
+
+        <script>
+            var arr1 = [1, 2, 3, [4, 5, [6, 7]], 8, 9];
+            Array.prototype.flat2 = function() {
+                return this.reduce((prev, curr) => {
+                    return prev.concat(
+                        Array.isArray(curr) ? curr.flat2(curr) : curr
+                    );
+                }, []);
+            };
+
+            arr1.flat2();
+
+            console.log(arr1.flat(Infinity));
+            console.log(arr1);
+            // console.log(arr1.flat2());
+        </script>
+
+        <script>
+            // 函数柯里化
+            function sum(a, b, c) {
+                return a + b + c;
+            }
+
+            function curry(fn, ...args) {
+                const fnLen = fn.length;
+                let argsLen = args.length;
+
+                if (fnLen > argsLen) {
+                    return function(...args1) {
+                        return curry(fn, ...args, ...args1);
+                    };
+                } else {
+                    return fn(...args);
+                }
+            }
+
+            let currySum = curry(sum, 4);
+            console.log(currySum(1, 2, 3));
+            console.log(currySum(3, 4, 5));
+        </script>
+
+        <script>
+            // 手写JSONP
+            function jsonp(url, data) {
+                return new Promise((resolve, reject) => {
+                    let callbackName = `callback_${Date.now()}`;
+                    let urlString = `${url}?callback=${callbackName}`;
+                    let dataString = '';
+
+                    // 处理数据
+                    if (data) {
+                        for (const key in data) {
+                            dataString += `&${encodeURIComponent(
+                                key
+                            )}=${encodeURIComponent(data[key])}`;
                         }
-                        else {
-                            reject(xhr)
+                    }
+
+                    urlString += dataString;
+
+                    // 创造标签
+                    let script = document.createElement('script');
+                    script.src = urlString;
+
+                    window[callbackName] = function(res) {
+                        if (res) {
+                            resolve(res);
+                        } else {
+                            reject('无数据返回');
+                        }
+                        delete window[callbackName];
+                        document.body.removeChild(script);
+                    };
+
+                    // 异常处理
+                    script.onerror = function() {
+                        delete window[callbackName];
+                        document.body.removeChild(script);
+                        reject('异常问题');
+                    };
+
+                    document.body.append(script);
+                });
+            }
+
+            // jsonp(
+            //     'http://113.108.110.61:62181/mobile-nldmx-easyview-api/isg/token',
+            //     {
+            //         name: 'zhs',
+            //         age: 24,
+            //     }
+            // )
+            //     .then((res) => {
+            //         console.log(res);
+            //     })
+            //     .catch((err) => {
+            //         console.log(err);
+            //     });
+        </script>
+
+        <script>
+            // 手写观察者
+            class Dep {
+                constructor(name) {
+                    this.name = name;
+                    this.observers = [];
+                    this.state = '状态1';
+                }
+
+                depend(observer) {
+                    this.observers.push(observer);
+                }
+
+                changeState(state) {
+                    this.state = state;
+                    this.observers.forEach((item, index) => {
+                        item.update(state);
+                    });
+                }
+            }
+
+            class Observer {
+                constructor(name) {
+                    this.name = name;
+                }
+
+                update(state) {
+                    console.log(`状态改为:${state},${this.name}知道了`);
+                }
+            }
+
+            let dep = new Dep('闹铃');
+            let xiaoming = new Observer('小明');
+            let xiaohong = new Observer('小红');
+
+            dep.depend(xiaohong);
+            dep.depend(xiaoming);
+
+            dep.changeState('响了');
+        </script>
+
+        <script>
+            // EventEmitter
+            class EventEmitter {
+                constructor() {
+                    this.events = {};
+                }
+
+                on(eventName, fn) {
+                    this.events[eventName] = this.events[eventName]
+                        ? this.events[eventName]
+                        : [];
+
+                    this.events[eventName].push({
+                        fn: fn,
+                        isOnce: false,
+                    });
+                }
+
+                once(eventName, fn) {
+                    this.events[eventName] = this.events[eventName]
+                        ? this.events[eventName]
+                        : [];
+
+                    this.events[eventName].push({
+                        fn: fn,
+                        isOnce: true,
+                    });
+                }
+
+                emit(eventName, ...args) {
+                    let event = this.events[eventName];
+                    if (event) {
+                        for (let i = 0; i < event.length; i++) {
+                            const fn = event[i].fn;
+                            fn && fn(...args);
                         }
                     }
                 }
 
-                xhr.send(body)
-            })
-        }
+                off(eventName, fn) {
+                    let event = this.events[eventName];
+                    const newEvent = [];
+                    if (event) {
+                        for (let i = 0; i < event.length; i++) {
+                            const func = event[i].fn;
+                            if (fn != func) {
+                                newEvent.push(event[i]);
+                            }
+                        }
+                        this.events[eventName] = newEvent;
+                    }
+                }
+            }
 
-        ajax('http://113.108.110.61:62181/mobile-nldmx-easyview-api/isg/token', 'post', '')
-    </script>
-</body>
+            let em = new EventEmitter();
+            em.on('test', function(a, b, c) {
+                console.log(a, b, c);
+            });
+            function sum1(a, b) {
+                console.log('和为：' + (a + b));
+            }
+            em.once('test', sum1);
+            em.emit('test', 1, 2, 3);
+            em.off('test', sum1);
+        </script>
 
+        <script>
+            // 正则千分位
+            let num = '123444555';
+            function thousand(str = '') {
+                return str.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+            }
+
+            console.log(thousand(num));
+        </script>
+
+        <script>
+            let template = '我是{{name}}，年龄{{age}}，性别{{sex}}';
+            let data1 = {
+                name: '姓名',
+                age: 18,
+            };
+            function render(template, data) {
+                return template.replace(/\{\{(\w+)\}\}/g, function(arr) {
+                    console.log(arr);
+                    let name = arr.replace(/\{|\}/g, '');
+                    return data[name];
+                });
+            }
+            console.log(render(template, data1)); // 我是姓名，年龄18，性别undefined
+        </script>
+
+        <script>
+            //JS函数链式调用，实现一下task().eat().sleep(2000).eat().sleep(2000)函数
+            function task() {
+                return new Queue();
+            }
+
+            function Queue() {
+                this.queue = Promise.resolve();
+            }
+
+            Queue.prototype.eat = function() {
+                this.queue = this.queue.then(() => {
+                    console.log('eat');
+                });
+
+                return this;
+            };
+
+            Queue.prototype.sleep = function(time) {
+                this.queue = this.queue.then(() => {
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            console.log('sleep');
+                            resolve();
+                        }, time);
+                    });
+                });
+
+                return this;
+            };
+
+            task()
+                .eat()
+                .sleep(2000)
+                .eat()
+                .sleep(2000);
+        </script>
+
+        <script>
+            //versions 是一个项目的版本号列表，因多人维护，不规则；var versions=['1.45.0','1.5','6','3.3.3.3.3.3.3']，
+            // 要求从小到大排序，注意'1.45'比'1.5'大，sorted=['1.5','1.45.0','3.3.3.3.3.3','6']
+            var versions = ['1.45.0', '1.5', '6', '3.3.3.3.3.3.3'];
+            versions.sort((a, b) => {
+                let i = 0;
+                const arr1 = a.split('.');
+                const arr2 = b.split('.');
+
+                while (true) {
+                    const s1 = arr1[i];
+                    const s2 = arr2[i];
+                    i++;
+
+                    if (s1 === undefined || s2 === undefined) {
+                        return arr2.length - arr1.length;
+                    }
+
+                    if (s1 === s2) continue;
+
+                    return s2 - s1;
+                }
+            });
+            console.log(versions.reverse());
+        </script>
+
+        <script>
+            const PENDING = 'pending';
+            const FULFILLED = 'fulfilled';
+            const REJECTED = 'rejected';
+            function Promise2(executor) {
+                this.resolvedCallbacks = [];
+                this.rejectedCallbacks = [];
+                const self = this;
+                this.state = PENDING;
+
+                function resolve(value) {
+                    if (self.state === PENDING) {
+                        self.state = FULFILLED;
+                        self.value = value;
+                        self.resolvedCallbacks.forEach((fn) => fn());
+                    }
+                }
+
+                function reject(error) {
+                    if (self.state === PENDING) {
+                        self.state = REJECTED;
+                        self.error = error;
+                        self.rejectedCallbacks.forEach((fn) => fn());
+                    }
+                }
+
+                executor(resolve, reject);
+            }
+
+            Promise2.prototype.then = function(resolved, rejected) {
+                if (this.state === PENDING) {
+                    this.resolvedCallbacks.push(() => {
+                        resolved(this.value);
+                    });
+                    this.rejectedCallbacks.push(() => {
+                        rejected(this.error);
+                    });
+                }
+
+                if (this.state === FULFILLED) {
+                    resolved(this.value);
+                }
+
+                if (this.state === REJECTED) {
+                    rejected(this.error);
+                }
+            };
+
+            // new Promise2((resolve, reject) => {
+            //     setTimeout(function() {
+            //         reject('error');
+            //     }, 5000);
+            // }).then(
+            //     (res) => {
+            //         console.log(res);
+            //     },
+            //     (err) => {
+            //         console.log(err);
+            //     }
+            // );
+        </script>
+
+        <script>
+            // 前端并发请求控制
+            function queueRequest(reqs, callback, max = 3) {
+                const reqsLen = reqs.length;
+            }
+        </script>
+
+        <script>
+            // 异步调度器
+            class Scheduler {
+                constructor() {
+                    this.awaitArr = [];
+                    this.count = 0;
+                }
+                async add(promiseCreator) {
+                    debugger
+                    this.count >= 2
+                        ? await new Promise((resolve) =>
+                              this.awaitArr.push(resolve)
+                          )
+                        : '';
+                    this.count++;
+                    const res = await promiseCreator();
+                    this.count--;
+                    this.awaitArr.length && this.awaitArr.shift()();
+                    return res;
+                }
+            }
+            const timeOut = (time) =>
+                new Promise((resolve) =>
+                    setTimeout(() => {
+                        resolve(time);
+                    }, time)
+                );
+            const scheduler = new Scheduler();
+            const addTask = (time, order) => {
+                scheduler
+                    .add(() => timeOut(time))
+                    .then((time) => console.log(order, time));
+            };
+            addTask(1000, '1');
+            addTask(500, '2');
+            addTask(300, '3');
+            addTask(400, '4');
+        </script>
+
+        <script>
+            //样例数据
+            let demoNode = {
+                tagName: 'ul',
+                props: { class: 'list list2', 'data-on': 'test' },
+                children: [
+                    { tagName: 'li', children: ['douyin'] },
+                    { tagName: 'li', children: ['toutiao'] },
+                ],
+            };
+
+            function render(obj) {
+                let $ele = document.createElement(obj.tagName);
+                for (const key in obj.props) {
+                    const element = obj.props[key];
+                    $ele.setAttribute(key, element);
+                }
+                for (let i = 0; i < obj.children.length; i++) {
+                    const item = obj.children[i];
+                    let sonEle = null;
+                    if (typeof item != 'object') {
+                        sonEle = document.createTextNode(item);
+                        // $ele.innerText(item);
+                    } else {
+                        sonEle = render(item);
+                    }
+                    $ele.appendChild(sonEle);
+                }
+
+                return $ele;
+            }
+
+            document.body.appendChild(render(demoNode));
+        </script>
+    </body>
 </html>
