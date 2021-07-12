@@ -95,7 +95,8 @@ module.exports = {
                 collapsable: true,
                 path: '/other/',
                 children: [
-                    ['/other/indexedDB.md', '浏览器数据库indexedDB']
+                    ['/other/indexedDB.md', '浏览器数据库indexedDB'],
+                    ['/other/npm link.md', 'npm link的使用'],
                     ['/other/vuePress.md', 'vuePress使用']
                 ]
             }
