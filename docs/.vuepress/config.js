@@ -97,7 +97,12 @@ module.exports = {
                 children: [
                     ['/other/indexedDB.md', '浏览器数据库indexedDB'],
                     ['/other/npm link.md', 'npm link的使用'],
-                    ['/other/vuePress.md', 'vuePress使用']
+                    ['/other/vuePress.md', 'vuePress使用'],
+                    ['/other/输入URL.md', '输入URL'],
+                    ['/other/babel.md', 'babel的原理和使用'],
+                    ['/other/jenkins.md', 'jenkins的用法'],
+                    ['/other/nginx.md', 'nginx的概念和用法'],
+                    ['/other/rollup.md', 'rollup的用法']
                 ]
             }
         ]
