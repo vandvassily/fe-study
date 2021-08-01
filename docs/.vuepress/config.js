@@ -56,7 +56,9 @@ module.exports = {
                 path: '/structure/',
                 children: [
                     ['/structure/复杂度分析-上.md', '复杂度分析(上)'],
-                    ['/structure/复杂度分析-下.md', '复杂度分析(下)']
+                    ['/structure/复杂度分析-下.md', '复杂度分析(下)'],
+                    ['/structure/链表.md', '链表'],
+                    ['/structure/数组.md', '数组'],
                 ]
             },
             {
@@ -64,7 +66,10 @@ module.exports = {
                 collapsable: true,
                 path: '/algorithm',
                 children: [
-                    ['/', '算法']
+                    ['/algorithm/回溯算法.md', '回溯算法'],
+                    ['/algorithm/链表.md', '链表'],
+                    ['/algorithm/排序.md', '排序'],
+                    ['/algorithm/字符串匹配.md', '字符串匹配']
                 ]
             },
             {
@@ -92,7 +97,7 @@ module.exports = {
             },
             {
                 title: '其他',
-                collapsable: true,
+                collapsable: false,
                 path: '/other/',
                 children: [
                     ['/other/indexedDB.md', '浏览器数据库indexedDB'],
