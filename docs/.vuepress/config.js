@@ -40,6 +40,7 @@ module.exports = {
                     ['/js_study/basic/new.md', 'new的原理'],
                     ['/js_study/basic/call apply bind.md', 'call apply bind'],
                     ['/js_study/basic/EventLoop.md', 'EventLoop 事件循环'],
+                    ['/js_study/basic/array.md', '数组方法和使用'],
                 ]
             },
             {
@@ -52,9 +53,10 @@ module.exports = {
             {
                 title: '数据结构',
                 collapsable: true,
-                path: '/structure',
+                path: '/structure/',
                 children: [
-                    ['/', '数据结构']
+                    ['/structure/复杂度分析-上.md', '复杂度分析(上)'],
+                    ['/structure/复杂度分析-下.md', '复杂度分析(下)']
                 ]
             },
             {
@@ -66,13 +68,43 @@ module.exports = {
                 ]
             },
             {
-                title: '正则',
+                title: 'leetcode',
                 collapsable: true,
-                path: '/regex',
+                path: '/leetcode/',
                 children: [
-                    ['/', '正则']
+                    ['/leetcode/19.删除链表倒数第N个结点.md', '19.删除链表倒数第N个结点']
                 ]
             },
+            {
+                title: '正则',
+                collapsable: true,
+                path: '/regex/',
+                children: [
+                ]
+            },
+            {
+                title: 'Vue知识点',
+                collapsable: true,
+                path: '/vue/',
+                children: [
+                    ['/vue/lifeCircle.md', 'vue生命周期']
+                ]
+            },
+            {
+                title: '其他',
+                collapsable: true,
+                path: '/other/',
+                children: [
+                    ['/other/indexedDB.md', '浏览器数据库indexedDB'],
+                    ['/other/npm link.md', 'npm link的使用'],
+                    ['/other/vuePress.md', 'vuePress使用'],
+                    ['/other/输入URL.md', '输入URL'],
+                    ['/other/babel.md', 'babel的原理和使用'],
+                    ['/other/jenkins.md', 'jenkins的用法'],
+                    ['/other/nginx.md', 'nginx的概念和用法'],
+                    ['/other/rollup.md', 'rollup的用法']
+                ]
+            }
         ]
     }
 }

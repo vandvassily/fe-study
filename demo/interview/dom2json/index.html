@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dom2json</title>
+    </head>
+    <body>
+        <p>
+            前端面试JS篇——实现DOM转化为JSON
+        </p>
+        <p>
+            <code>
+                <div>
+                    <span>
+                        <a></a>
+                    </span>
+                    <span>
+                        <a></a>
+                        <a></a>
+                    </span>
+                </div>
+            </code>
+        </p>
+        <p>
+            <code>
+                { tag: 'DIV', children: [ { tag: 'SPAN', children: [ { tag: 'A',
+                children: [] } ] }, { tag: 'SPAN', children: [ { tag: 'A',
+                children: [] }, { tag: 'A', children: [] } ] } ] }
+            </code>
+        </p>
+        <div id="target">
+            <span>
+                <a></a>
+            </span>
+            <span>
+                <a></a>
+                <a></a>
+            </span>
+        </div>
+        <script>
+            const dom = document.getElementById('target');
+            // dom转换为json格式
+            function domToJson(dom) {
+                var res = {};
+                res.tagName = dom.tagName;
+                const children = [].slice.apply(dom.children);
+                res.children = [];
+                children.forEach((element) => {
+                    res.children.push(domToJson(element));
+                });
+
+                return res;
+            }
+            console.log(dom.tagName);
+            console.log(dom);
+            console.log(JSON.stringify(domToJson(dom)));
+        </script>
+    </body>
+</html>
