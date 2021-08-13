@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>合并数组相同项</title>
+  </head>
+  <body>
+    <script>
+      // codepen https://codepen.io/vandvassily/pen/vYmPvvM
+      const arr = [
+        ['a', 'b', 'c'],
+        ['a', 'd'],
+        ['d', 'e'],
+        ['f', 'g'],
+        ['h', 'g'],
+        ['i'],
+      ];
+      // 合并相同项
+      // 输出
+      // [
+      //     ['a', 'b', 'c', 'd', 'e'],
+      //     ['f', 'g', 'h'],
+      //     ['i']
+      // ]
+
+      // 思路
+      // 使用 new set() 合并两个数组，如果 size < len1 + len2，则证明有相同的元素，直接合并即可
+      function merge(arr = []) {
+        const ret = [arr[0]];
+        for (let i = 1; i < arr.length; i++) {
+          const curr = arr[i];
+          let flag = false;
+          for (let j = 0; j < ret.length; j++) {
+            const element = ret[j];
+            const total = new Set(element.concat(curr));
+            if (total.size < element.length + curr.length) {
+              ret[j] = [...total];
+              flag = true;
+              break;
+            }
+          }
+
+          if (!flag) {
+            ret.push(curr);
+          }
+        }
+
+        return ret;
+      }
+
+      console.log(merge(arr));
+      // reduce解法
+      // 使用 new set() 合并两个数组，如果 size < len1 + len2，则证明有相同的元素，直接合并即可
+      function merge2(arr = []) {
+        return arr.reduce(
+          (prev, curr) => {
+            let flag = false;
+            prev.forEach((item, index) => {
+              const total = new Set(item.concat(curr));
+              if (total.size < item.length + curr.length) {
+                flag = true;
+                prev[index] = [...total];
+              }
+            });
+
+            if (!flag) {
+              prev.push(curr);
+            }
+            return prev;
+          },
+          [arr[0]],
+        );
+      }
+    </script>
+  </body>
+</html>
