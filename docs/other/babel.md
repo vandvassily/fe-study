@@ -38,3 +38,4 @@ import {add, cloneDeep} from 'lodash'
 ## 如何写一个插件？
 
 [babel plugin-handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md)
+[AST，真香](https://mp.weixin.qq.com/s/4IyGKkJzi1HpLqMlqBjD9g)
