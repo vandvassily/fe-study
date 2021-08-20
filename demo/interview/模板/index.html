@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div>姓名: {{name}}</div>
+        <div>年龄：{{age}}</div>
+        <div>性别：{{gender}}</div>
+    </div>
+    <div>渲染结果:</div>
+    <div id="result"></div>
+    <script>
+
+        function render(template, data) {
+            const reg = /\{\{(\w+)\}\}/; // 模板字符串正则
+            if (reg.test(template)) { // 判断模板里是否有模板字符串
+                const name = reg.exec(template)[1]; // 查找当前模板里第一个模板字符串的字段
+                template = template.replace(reg, data[name]); // 将第一个模板字符串渲染
+                return render(template, data); // 递归的渲染并返回渲染后的结构
+            }
+            return template; // 如果模板没有模板字符串直接返回
+        }
+
+        const template = '我是{{name}}，年龄{{age}}，性别{{gender}}';
+        const person = {
+            name: '布兰',
+            age: 12
+        }
+        const $app = document.querySelector('#app');
+        document.querySelector('#result').innerHTML = render($app.innerHTML, person)
+        console.log(render(template, person));// 我是布兰，年龄12，性别undefined
+    </script>
+</body>
+
+</html>
