@@ -1,8 +1,10 @@
 ---
 home: true
 heroImage: /img/logo.jpg
-actionText: 阅读 →
-actionLink: /js_study/
+actions:
+  - text: 阅读 →
+    link: /js_study/
+    type: primary
 features:
 - title: 简洁至上
   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
