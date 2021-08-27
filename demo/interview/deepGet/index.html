@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+完成 deepGet 函数，给它传入一个对象和字符串，
+字符串表示对象深层属性的获取路径，可以深层次获取对象内容：
+<body>
+    <script>
+        // 完成 deepGet 函数，给它传入一个对象和字符串，
+        // 字符串表示对象深层属性的获取路径，可以深层次获取对象内容：
+
+        const deepGet = (obj, prop) => {
+            // TODO: 在此处完善代码
+            // 拆分获得顺序key
+            const keyArr = prop.replaceAll('[', '.').replaceAll(']', '').split('.');
+            // const keyArr = prop.split(/\].|[\[.]/);
+            let temp = obj;
+            for (let i = 0; i < keyArr.length; i++) {
+                const currKey = keyArr[i];
+                if (!temp[currKey]) return undefined;
+                temp = temp[currKey]
+            }
+
+            return temp
+        }
+
+        /** 以下为测试代码 */
+        deepGet({
+            school: {
+                student: { name: 'Tomy' },
+            },
+        }, 'school.student.name') // => 'Tomy'
+
+        deepGet({
+            school: {
+                students: [
+                    { name: 'Tomy' },
+                    { name: 'Lucy' },
+                ],
+            }
+        }, 'school.students[1].name') // => 'Lucy'
+
+        // 对于不存在的属性，返回 undefined
+        deepGet({ user: { name: 'Tomy' } }, 'user.age') // => undefined
+        deepGet({ user: { name: 'Tomy' } }, 'school.user.age') // => undefined
+    </script>
+</body>
+
+</html>
