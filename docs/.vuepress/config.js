@@ -53,8 +53,8 @@ module.exports = {
           '/js_study/basic/array.md',
           '/js_study/basic/currying.md',
           '/js_study/basic/深拷贝.md',
-          '/js_study/basic/debounce.md',
-          '/js_study/basic/throttle.md'
+          '/js_study/usage/debounce.md',
+          '/js_study/usage/throttle.md'
         ]
       },
       {
