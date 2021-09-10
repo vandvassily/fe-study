@@ -1,4 +1,4 @@
-# Vue声明周期
+# Vue生命周期
 
 ![生命周期](https://cn.vuejs.org/images/lifecycle.png)
 
