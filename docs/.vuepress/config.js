@@ -92,10 +92,16 @@ module.exports = {
         children: []
       },
       {
-        text: 'Vue知识点',
+        text: 'Vue',
         collapsable: true,
         link: '/vue/',
         children: ['/vue/lifeCircle.md']
+      },
+      {
+        text: 'React',
+        collapsable: true,
+        link: '/react/',
+        children: ['/react/lifecircle.md']
       },
       {
         text: '其他',
