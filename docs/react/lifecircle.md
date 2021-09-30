@@ -2,9 +2,11 @@
 
 React的生命周期，看图会更容易理解。
 
-## 图表
+## 生命周期流程
 
 [展示生命周期](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+
+![/img/js_study/prototype/prototype.jpg](../.vuepress/public/img/react/react_lifecircle.jpg)
 
 ## 挂载时
 
@@ -12,7 +14,7 @@ React的生命周期，看图会更容易理解。
 
 ## 更新时
 
-`constructor` -> `render` -> `componentDidUpdate`
+`New props/ setState() / forceUpdate()` -> `render` -> `componentDidUpdate`
 
 ## 卸载时
 
