@@ -101,7 +101,11 @@ module.exports = {
         text: 'React',
         collapsable: true,
         link: '/react/',
-        children: ['/react/lifecircle.md']
+        children: [
+          '/react/lifecircle.md',
+          '/react/React Hooks.md',
+          '/react/react performance.md',
+        ]
       },
       {
         text: '其他',
