@@ -20,6 +20,8 @@ React的生命周期，看图会更容易理解。
 
 `componentWillUnmount`
 
+[类组件Demo](https://codesandbox.io/s/react-lifecircle2-0i0ie?file=/src/App.tsx)
+
 ## 参考
 
 [React生命周期流程图及简述](https://www.jianshu.com/p/fb25accc5548)
