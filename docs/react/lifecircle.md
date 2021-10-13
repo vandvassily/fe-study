@@ -85,6 +85,7 @@ export default function App() {
 ### 类组件生命周期钩子函数和useEffect的差异
 
 #### 类组件 cDM cDU 钩子
+[类组件Demo](https://codesandbox.io/s/react-lifecircle2-0i0ie?file=/src/App.tsx)
 
 ## 参考
 
