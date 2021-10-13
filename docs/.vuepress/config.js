@@ -102,9 +102,12 @@ module.exports = {
         collapsable: true,
         link: '/react/',
         children: [
+          '/react/jsx.md',
           '/react/lifecircle.md',
           '/react/React Hooks.md',
           '/react/react performance.md',
+          '/react/setState.md',
+          '/react/react面试题.md'
         ]
       },
       {

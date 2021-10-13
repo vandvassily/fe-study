@@ -4,7 +4,7 @@
 - [ ] 生命周期
 - [ ] 类组件
 - [ ] 函数组件
-- [ ] hooks
+- [ ] React Hooks
 - [ ] 事件机制
 - [ ] React源码分析
 - [ ] Redux
@@ -14,6 +14,8 @@
 ## 推荐文章
 
 ### Reack Hooks
+
+[React技术揭秘](https://react.iamkasong.com/)
 
 [React Hooks Tutorial](https://www.robinwieruch.de/react-hooks)
 

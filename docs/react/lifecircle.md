@@ -20,65 +20,112 @@ React的生命周期，看图会更容易理解。
 
 `componentWillUnmount`
 
-### 渲染顺序
+### 父子孙组件中，生命周期以及Hooks的执行顺序
 
-父子结构组件，react的渲染顺序是怎么样的？
+组件结构如下
 
 ```js
 /**
- * 渲染顺序是什么样的？
- *      App
- *      /   \
- *  parent  sibling
- *    /  \
- *  son  son
+ * 执行顺序是什么样的？
+ *       App
+ *       /   \
+ *   parent  sibling
+ *     /  \
+ *   son  son
+ *   /
+ * grandSon
  */
+```
+
+#### render
+
+##### Hooks的执行
+
+```js
+interface ComProps {
+  name?: string;
+}
+
+const Com: React.FC<ComProps> = ({ name, children }) => {
+  console.log(`render ${name}`);
+  useEffect(() => {
+    console.log(`useEffect ${name}`);
+  }, [name]);
+
+  useLayoutEffect(() => {
+    console.log(`useLayoutEffect ${name}`);
+  }, [name]);
+
+  return (
+    <div>
+      <div>{name}</div>
+      {children}
+    </div>
+  );
+};
+
+const GrandSon = () => {
+  return <Com name="GrandSon" />;
+};
 
 const Son1 = () => {
-  console.log("Son1");
-
-  return <div>Son1</div>;
+  return (
+    <Com name="Son1">
+      <GrandSon />
+    </Com>
+  );
 };
 
 const Son2 = () => {
-  console.log("Son2");
-  return <div>Son2</div>;
+  return <Com name="Son2" />;
 };
 
 const Parent = () => {
-  console.log("Parent");
   return (
-    <div>
+    <Com name="Parent">
       <Son1 />
       <Son2 />
-    </div>
+    </Com>
   );
 };
 
 const Sibling = () => {
-  console.log("sibling");
-  return <div>sibling</div>;
+  return <Com name="Sibling" />;
 };
 
 export default function App() {
   return (
-    <div className="App">
+    <Com name="App">
       <Parent />
       <Sibling />
-    </div>
+    </Com>
   );
 }
-// Parent
-// Son1
-// Son2
-// Sibling
+// render App 
+// render Parent 
+// render Son1 
+// render GrandSon 
+// render Son2 
+// render Sibling 
+// useLayoutEffect GrandSon 
+// useLayoutEffect Son1 
+// useLayoutEffect Son2 
+// useLayoutEffect Parent 
+// useLayoutEffect Sibling 
+// useLayoutEffect App 
+// useEffect GrandSon 
+// useEffect Son1 
+// useEffect Son2 
+// useEffect Parent 
+// useEffect Sibling 
+// useEffect App 
 ```
 
 1. 深度优先
 2. 先父后子
 3. 子渲染后再往上归，到（父）相邻的兄弟节点
 
-[Demo](https://codesandbox.io/s/react-lifecircle-3u2mx?file=/src/App.tsx)
+[codesandbox Demo](https://codesandbox.io/s/react-lifecircle-3u2mx?file=/src/App.tsx)
 
 // TODO:
 
@@ -90,4 +137,3 @@ export default function App() {
 ## 参考
 
 [React生命周期流程图及简述](https://www.jianshu.com/p/fb25accc5548)
-
