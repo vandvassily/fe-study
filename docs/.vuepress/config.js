@@ -127,6 +127,12 @@ module.exports = {
           '/other/vue2改造为vite构建.md',
           '/other/sentry.md'
         ]
+      },
+      {
+        text: '收藏的文章',
+        collapsable: false,
+        link: '/awesome/',
+        children: ['/awesome/React.md', '/awesome/Taro.md']
       }
     ]
   }
