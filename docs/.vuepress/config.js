@@ -4,7 +4,7 @@ module.exports = {
   base: '/fe-study/',
   title: 'fe-study',
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
-  description: '前端知识积累',
+  description: '前端知识笔记',
   ga: 'UA-117533223-1',
   serviceWorker: true,
   plugins: [

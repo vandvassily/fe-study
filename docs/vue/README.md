@@ -12,6 +12,8 @@ Vue的官方文档写的很不错，如果有疑惑，尽量去看文档。 传�
 4. 双向绑定的原理
    1. ES5的 `defineProperty`
    2. `v-model` 的语法糖
+5. Diff算法
+6. 观察者模式
 
 ### Vue-router
 
