@@ -75,13 +75,13 @@ module.exports = {
       },
       {
         text: '算法',
-        collapsable: true,
+        collapsable: false,
         link: '/algorithm',
         children: ['/algorithm/回溯算法.md', '/algorithm/链表.md', '/algorithm/排序.md', '/algorithm/字符串匹配.md']
       },
       {
         text: 'leetcode',
-        collapsable: true,
+        collapsable: false,
         link: '/leetcode/',
         children: ['/leetcode/19.删除链表倒数第N个结点.md']
       },
@@ -102,6 +102,7 @@ module.exports = {
         collapsable: true,
         link: '/react/',
         children: [
+          '/react/React架构.md',
           '/react/jsx.md',
           '/react/lifecircle.md',
           '/react/React Hooks.md',
@@ -125,7 +126,8 @@ module.exports = {
           '/other/rollup.md',
           '/other/lerna.md',
           '/other/vue2改造为vite构建.md',
-          '/other/sentry.md'
+          '/other/sentry.md',
+          '/other/vconsole.md',
         ]
       },
       {

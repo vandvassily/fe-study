@@ -1,4 +1,4 @@
-# rollup
+# RollUp
 
 `rollup` 主要用于打包类库文件，适合将多个文件合并为一个文件。同时 `tree-shaking` 会将内部没有使用到的代码移除掉。
 

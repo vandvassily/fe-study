@@ -1,4 +1,4 @@
-# 基于 lerna 管理 monorepo 项目
+# 基于 Lerna 管理 monorepo 项目
 
 demo传送门: [lerna-example](https://github.com/vandvassily/lerna-example)
 

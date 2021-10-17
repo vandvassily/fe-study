@@ -1,4 +1,4 @@
-# babel
+# Babel
 
 ## 核心步骤
 

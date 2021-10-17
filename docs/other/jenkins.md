@@ -1,4 +1,4 @@
-# jenkins配置
+# Jenkins配置
 
 ## Nodejs环境
 
@@ -7,7 +7,6 @@
 3. 项目任务中，选择 `node path`
 4. 执行shell中，输入 `npm` 指令
 5. 部署
-
 
 ## Publish over FTP
 

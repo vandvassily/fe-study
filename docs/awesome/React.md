@@ -8,6 +8,8 @@
 记得再去看B站的视频
 :::
 
+[React 源码解析](https://react.jokcy.me/)
+
 ## Hooks
 
 [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
