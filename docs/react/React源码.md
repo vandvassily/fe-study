@@ -31,3 +31,7 @@
 - commitBeforeMutationLifeCycles
 - commitPlacement
 - insertOrAppendPlacementNodeIntoContainer
+
+## 参考
+
+[react源码解析8.render阶段](https://xiaochen1024.com/courseware/60b1b2f6cf10a4003b634718/60b1b348cf10a4003b634720)

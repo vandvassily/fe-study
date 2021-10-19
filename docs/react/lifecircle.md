@@ -37,9 +37,8 @@ React的生命周期，看图会更容易理解。
  */
 ```
 
-#### render
-
-##### Hooks的执行
+#### Hooks的执行
+##### render阶段
 
 ```js
 interface ComProps {
@@ -128,12 +127,21 @@ export default function App() {
 [codesandbox Demo](https://codesandbox.io/s/react-lifecircle-3u2mx?file=/src/App.tsx)
 
 // TODO:
-
-### 类组件生命周期钩子函数和useEffect的差异
-
 #### 类组件 cDM cDU 钩子
 [类组件Demo](https://codesandbox.io/s/react-lifecircle2-0i0ie?file=/src/App.tsx)
 
+1. mount时
+   1. render阶段: 深度优先遍历（从父到子），依次执行节点的 `constructor` `gDSFP` `render`
+   2. commit阶段: 深度优先遍历的冒泡阶段（从子到父），依次执行 `cDM`
+2. update时
+   1. render阶段: 深度优先遍历，从变化的节点开始，依次执行节点的  `gDSFP` `render`
+   2. commit阶段: 深度优先遍历的冒泡阶段（从子到父），执行对应变化节点的dom操作，然后执行 `gSBU` `cDU`
+3. unmount时
+   1. commit阶段执行 `cWU`
+
+### 问题
+
+#### 类组件生命周期钩子函数和useEffect的差异
 ## 参考
 
 [React生命周期流程图及简述](https://www.jianshu.com/p/fb25accc5548)

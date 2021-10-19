@@ -108,7 +108,8 @@ module.exports = {
           '/react/React Hooks.md',
           '/react/react performance.md',
           '/react/setState.md',
-          '/react/react面试题.md'
+          '/react/react面试题.md',
+          '/react/React源码.md'
         ]
       },
       {
