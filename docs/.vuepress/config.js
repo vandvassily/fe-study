@@ -95,7 +95,10 @@ module.exports = {
         text: 'Vue',
         collapsable: true,
         link: '/vue/',
-        children: ['/vue/lifeCircle.md']
+        children: [
+          '/vue/lifeCircle.md',
+          '/vue/观察者模式.md',
+        ]
       },
       {
         text: 'React',

@@ -100,6 +100,7 @@ export default function App() {
     </Com>
   );
 }
+
 // render App 
 // render Parent 
 // render Son1 
@@ -118,6 +119,7 @@ export default function App() {
 // useEffect Parent 
 // useEffect Sibling 
 // useEffect App 
+
 ```
 
 1. 深度优先
