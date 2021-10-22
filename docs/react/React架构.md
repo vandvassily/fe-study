@@ -96,9 +96,9 @@ function FiberNode(
   this.stateNode = null;
 
   // Fiber
-  this.return = null;
-  this.child = null;
-  this.sibling = null;
+  this.return = null; // reference to the parent
+  this.child = null; // reference to the first child
+  this.sibling = null; // reference to the first sibling
   this.index = 0;
 
   this.ref = null;

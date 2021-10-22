@@ -9,6 +9,17 @@
 
 [react源码解析2.react的设计理念](https://xiaochen1024.com/courseware/60b1b2f6cf10a4003b634718/60b1b31ccf10a4003b63471a)
 
+### Fiber
+
+[The how and why on React’s usage of linked list in Fiber to walk the component’s tree](https://indepth.dev/posts/1007/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-to-walk-the-components-tree)
+
+> - 讲解Fiber使用链表的原因
+> - 同时还有一个链表执行的过程demo [Linked list traversal](https://stackblitz.com/edit/js-tle1wr?file=index.js)
+
+[Inside Fiber: in-depth overview of the new reconciliation algorithm in React](https://indepth.dev/posts/1008/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react)
+
+[In-depth explanation of state and props update in React](https://indepth.dev/posts/1009/in-depth-explanation-of-state-and-props-update-in-react)
+
 ## Hooks
 
 [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
@@ -22,4 +33,4 @@
 [React Hooks Tutorial](https://www.robinwieruch.de/react-hooks)
 
 [How to fetch data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data)
-> 讲了如何使用React Hook去请求数据
+> 讲解如何使用React Hook去请求数据
