@@ -16,6 +16,10 @@
 > - 讲解Fiber使用链表的原因
 > - 同时还有一个链表执行的过程demo [Linked list traversal](https://stackblitz.com/edit/js-tle1wr?file=index.js)
 
+[An Introduction to React Fiber - The Algorithm Behind React](https://www.velotio.com/engineering-blog/react-fiber-algorithm)
+
+> 中文翻译 [如何理解 React Fiber 架构？ - 弹铁蛋同学的回答 - 知乎](https://www.zhihu.com/question/49496872/answer/2137978516)
+
 [Inside Fiber: in-depth overview of the new reconciliation algorithm in React](https://indepth.dev/posts/1008/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react)
 
 [In-depth explanation of state and props update in React](https://indepth.dev/posts/1009/in-depth-explanation-of-state-and-props-update-in-react)
