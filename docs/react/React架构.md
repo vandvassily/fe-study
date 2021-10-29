@@ -5,7 +5,7 @@
 分为两层：
 
 - 'Stack' Reconciler(协调器) ---- 负责找出变化的组件
-- Renderner(渲染器) --- 负责将变化的组件渲染到页面上
+- Renderer(渲染器) --- 负责将变化的组件渲染到页面上
 
 :::tip 提示
 注意，体会 **Stack** 这个词。[官网说明](https://zh-hans.reactjs.org/docs/implementation-notes.html)
@@ -136,6 +136,20 @@ function FiberNode(
 在 update 阶段（状态更新），会根据状态变更后的 jsx 对象和 current Fiber 树做对比
 形成新的 workInProgress Fiber （字面意思：正在工作的Fiber树），当渲染完成后， workInProgress Fiber 切换为 current Fiber
 
+### React Fiber 是如何工作的？
+
+// TODO: 了解每个阶段调用的方法
+
+1. 初始渲染
+   1. 创建一个 fiber 树
+2. 更新阶段
+   1. 渲染阶段
+      1. 开始阶段
+      2. 完善阶段
+   2. 提交阶段
+
+> 更为完善的讲解 [如何理解 React Fiber 架构？ - 弹铁蛋同学的回答 - 知乎](https://www.zhihu.com/question/49496872/answer/2137978516)
+
 ## 参考文章
 
 [React15架构](https://react.iamkasong.com/preparation/oldConstructure.html)
@@ -147,4 +161,6 @@ function FiberNode(
 [reconcilers--官网](https://zh-hans.reactjs.org/docs/codebase-overview.html#reconcilers)
 
 [react源码架构](https://xiaochen1024.com/courseware/60b1b2f6cf10a4003b634718/60b1b328cf10a4003b63471b)
+
+[如何理解 React Fiber 架构？ - 弹铁蛋同学的回答 - 知乎](https://www.zhihu.com/question/49496872/answer/2137978516)
 
