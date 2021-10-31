@@ -1,4 +1,4 @@
-# 前端新概念
+# 前端新概念和趋势
 
 ## BFF (BackEnd for FrontEnd)
 
@@ -8,5 +8,18 @@
 
 ## JAM
 
+一整套用于 **构建现代网站的技术找**
+
 [What is Jamstack?](https://jamstack.org/what-is-jamstack/)
 
+> 核心 1. 预渲染 2. 解耦
+
+[Jamstack，下一代Web建站技术栈？ - Starkwang的文章 - 知乎](https://zhuanlan.zhihu.com/p/281085404)
+
+1. 使用网站生成器预渲染整个网站。`NextJS NuxtJS Gatsby`
+2. 使用 Headless CMS(无头CMS) 管理动态内容 （data）。
+3. 使用 HTTP API 增强网站的功能
+4. 全站托管于 CDN 上
+5. 原子化发布（每次发布都是一次全量、原子性的发布）
+6. 灵活的文件缓存策略
+7. 基于 Git 的全自动构建、部署流程

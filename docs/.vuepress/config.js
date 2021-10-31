@@ -138,7 +138,13 @@ module.exports = {
         text: '收藏的文章',
         collapsable: false,
         link: '/awesome/',
-        children: ['/awesome/React.md', '/awesome/Taro.md']
+        children: [
+          '/awesome/React.md',
+          '/awesome/Taro.md',
+          '/awesome/concepts.md',
+          '/awesome/tools.md',
+          '/awesome/network.md',
+        ]
       }
     ]
   }
