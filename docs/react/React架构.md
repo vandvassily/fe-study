@@ -131,10 +131,16 @@ function FiberNode(
 
 双缓存是指存在两颗Fiber树，`current Fiber` 树描述了当前呈现的dom树，`workInProgress Fiber` 是正在更新的Fiber树，这两颗Fiber树都是在内存中运行的，在workInProgress Fiber构建完成之后会将它作为current Fiber应用到dom上。
 
-在 mount 阶段（首次渲染），会根据 jsx 对象，构建 Fiber 对象，形成Fiber树，然后这棵 Fiber 树会作为 current Fiber 应用到真是的DOM上。
+在 mount 阶段（首次渲染），会根据 jsx 对象，构建 Fiber 对象，形成Fiber树，然后这棵 Fiber 树会作为 current Fiber 应用到真实的DOM上。
 
-在 update 阶段（状态更新），会根据状态变更后的 jsx 对象和 current Fiber 树做对比
-形成新的 workInProgress Fiber （字面意思：正在工作的Fiber树），当渲染完成后， workInProgress Fiber 切换为 current Fiber
+在 update 阶段（状态更新），会根据状态变更后的 jsx 对象和 current Fiber 树做对比，
+构建形成新的 `workInProgress Fiber` （字面意思：正在工作的Fiber树）。`workInProgress Fiber` 的创建会复用 `current Fiber树` 对应的节点
+
+:::tip
+这个决定是否复用的过程，就是Diff算法。
+:::
+
+`workInProgress Fiber` 在 `render阶段` 完成构建后，会进入到 `commit阶段` 渲染到页面上。当渲染完成后， `workInProgress Fiber` 切换为 `current Fiber`
 
 ### React Fiber 是如何工作的？
 

@@ -24,6 +24,10 @@
 
 [In-depth explanation of state and props update in React](https://indepth.dev/posts/1009/in-depth-explanation-of-state-and-props-update-in-react)
 
+### FiberRoot
+
+[React源码解析之FiberRoot](https://www.jianshu.com/p/802db7b79e28)
+
 ## Hooks
 
 [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
