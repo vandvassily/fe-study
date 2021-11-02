@@ -142,6 +142,28 @@ function FiberNode(
 
 `workInProgress Fiber` 在 `render阶段` 完成构建后，会进入到 `commit阶段` 渲染到页面上。当渲染完成后， `workInProgress Fiber` 切换为 `current Fiber`
 
+
+示例如下。
+
+```jsx
+import React, { useState } from 'react';
+
+const App: React.FC = () => {
+  const [content, setContent] = useState('这是内容');
+
+  return (
+    <div className='news'>
+      <h1>这是标题</h1>
+      <p onClick={() => setContent('这是更新后的内容')}>{content}</p>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('app'));
+```
+
+![流程图](../react/React双缓存.svg)
+
 ### React Fiber 是如何工作的？
 
 // TODO: 了解每个阶段调用的方法
