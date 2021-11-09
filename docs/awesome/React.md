@@ -9,6 +9,9 @@
 
 [react源码解析2.react的设计理念](https://xiaochen1024.com/courseware/60b1b2f6cf10a4003b634718/60b1b31ccf10a4003b63471a)
 
+[React的秘密](https://segmentfault.com/blog/react-secret)
+> 此系列文章以React的更新过程为主线，从render到commit。并对其他的内容分析，例如事件机制、Scheduler调度原理、Hooks以及context的原理。
+
 ### Fiber
 
 [The how and why on React’s usage of linked list in Fiber to walk the component’s tree](https://indepth.dev/posts/1007/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-to-walk-the-components-tree)
