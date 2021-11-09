@@ -171,10 +171,13 @@ ReactDOM.render(<App />, document.getElementById('app'));
 1. 初始渲染
    1. 创建一个 fiber 树
 2. 更新阶段
-   1. 渲染阶段
-      1. 开始阶段
-      2. 完善阶段
-   2. 提交阶段
+   1. 渲染阶段 render
+      1. 开始阶段 beginWork
+      2. 完善阶段 completeWork
+   2. 提交阶段 commit phase 分为多个子阶段。（在这个阶段中，一些生命周期钩子 componentDidXXX 、hook 会执行）
+      1. before mutation阶段（执行 DOM 操作前）
+      2. mutation阶段（执行 DOM 操作）
+      3. layout阶段（执行 DOM 操作后）
 
 > 更为完善的讲解 [如何理解 React Fiber 架构？ - 弹铁蛋同学的回答 - 知乎](https://www.zhihu.com/question/49496872/answer/2137978516)
 
