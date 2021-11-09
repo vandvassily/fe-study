@@ -192,3 +192,4 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 [如何理解 React Fiber 架构？ - 弹铁蛋同学的回答 - 知乎](https://www.zhihu.com/question/49496872/answer/2137978516)
 
+[完全理解React Fiber](http://www.ayqy.net/blog/dive-into-react-fiber/)
