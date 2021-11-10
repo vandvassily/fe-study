@@ -2,8 +2,13 @@
 
 - [ ] jsx语法
 - [ ] 生命周期
-- [ ] 类组件
-- [ ] 函数组件
+- [ ] 更新机制
+  - [ ] React Fiber 结构
+  - [ ] Scheduler 任务调度
+  - [ ] Diff算法（reconcileChildren）
+- [ ] 组件
+  - [ ] 类组件
+  - [ ] 函数组件
 - [ ] React Hooks
 - [ ] 事件机制
 - [ ] React源码分析
@@ -11,19 +16,26 @@
   - [ ] 使用
   - [ ] 源码分析
 
-:::tip 数据结构与算法
+:::tip 知识点
+数据结构与算法
   - 链表
-    - Fiber
+    - Fiber 树
   - 小顶堆 Min Heap
-    - scheduler 
+    - scheduler 任务调度
   - 深度优先遍历 DFS
+    - fiber 节点遍历
+  - diff算法
+    - 如何降低复杂度
+
+位运算
+  - lane模型
 :::
 
 ## 推荐文章
 
-### Reack Hooks
-
 [React技术揭秘](https://react.iamkasong.com/)
+
+### Reack Hooks
 
 [React Hooks Tutorial](https://www.robinwieruch.de/react-hooks)
 
