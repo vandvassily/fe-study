@@ -32,7 +32,7 @@ render阶段，是从 rootFiber 向下DFS遍历。从 `触发状态更新的fibe
 
 接下来就衔接上了 render阶段 和 commit阶段。
 
-## 算法
+### 调度用到的算法
 
 小顶堆
 

@@ -113,6 +113,7 @@ module.exports = {
           '/react/setState.md',
           '/react/React Events.md',
           '/react/React 状态更新.md',
+          '/react/React Scheduler.md',
           '/react/react面试题.md',
           '/react/React源码.md'
         ]

@@ -174,7 +174,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
    1. 渲染阶段 render
       1. 开始阶段 beginWork
       2. 完善阶段 completeWork
-   2. 提交阶段 commit phase 分为多个子阶段。（在这个阶段中，一些生命周期钩子 componentDidXXX 、hook 会执行）
+   2. 提交阶段 commit phase 分为多个子阶段。在这个阶段中，一些生命周期钩子 componentDidXXX 、hook（ useLayoutEffect 、useEffect） 会执行。
       1. before mutation阶段（执行 DOM 操作前）
       2. mutation阶段（执行 DOM 操作）
       3. layout阶段（执行 DOM 操作后）
