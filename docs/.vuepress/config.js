@@ -134,6 +134,7 @@ module.exports = {
           '/other/vue2改造为vite构建.md',
           '/other/sentry.md',
           '/other/vconsole.md',
+          '/other/how-to-make-a-game.md',
         ]
       },
       {
