@@ -118,6 +118,13 @@ module.exports = {
         ]
       },
       {
+        text: 'Typescript',
+        collapsable: true,
+        link: '/typescript/',
+        children: [
+        ]
+      },
+      {
         text: '其他',
         collapsable: false,
         link: '/other/',
@@ -143,10 +150,12 @@ module.exports = {
         link: '/awesome/',
         children: [
           '/awesome/React.md',
+          '/awesome/Typescript.md',
           '/awesome/Taro.md',
           '/awesome/concepts.md',
           '/awesome/tools.md',
           '/awesome/network.md',
+          '/awesome/other.md',
         ]
       }
     ]

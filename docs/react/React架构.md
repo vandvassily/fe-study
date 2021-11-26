@@ -162,7 +162,7 @@ const App: React.FC = () => {
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
-![流程图](../react/React双缓存.svg)
+![流程图](./image/React双缓存.svg)
 
 ### React Fiber 是如何工作的？
 

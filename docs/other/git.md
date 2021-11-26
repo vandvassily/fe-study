@@ -22,3 +22,5 @@
 ## 参考
 
 [团队合作必备的Git操作](https://segmentfault.com/a/1190000015676846)
+
+[Git Community Book 中文版](http://gitbook.liuhui998.com/)

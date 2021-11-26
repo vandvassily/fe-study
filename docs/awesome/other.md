@@ -1,5 +1,11 @@
 # 其他
 
+## Webpack
+
+[这才是官方的tapable中文文档](https://segmentfault.com/a/1190000017420937)  
+
+## Online IDE
+
 [CodeSandbox 浏览器端的webpack是如何工作的？ 上篇](https://segmentfault.com/a/1190000019679430)
 
 ## 位运算
