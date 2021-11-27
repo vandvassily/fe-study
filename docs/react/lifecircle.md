@@ -150,6 +150,15 @@ export default function App() {
 
 [react-dom-diff](https://supnate.github.io/react-dom-diff/index.html)
 
+用 `React17` 重写了 `dom diff`
+
+<CodeSandbox sandboxUrl="https://codesandbox.io/embed/react-dom-diff-9ozkl?fontsize=14&hidenavigation=1&theme=dark" />
+
+::: tip
+1. shape5 在组件中增加了 key，因此从 shape4 到 shape5 的时候，原有的 B和C 并没有得到复用。
+2. shape5 到 shape6 节点得到了复用
+:::
+
 ### 问题
 
 #### 类组件生命周期钩子函数和useEffect的差异
