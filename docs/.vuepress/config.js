@@ -77,7 +77,13 @@ module.exports = {
         text: '算法',
         collapsable: false,
         link: '/algorithm',
-        children: ['/algorithm/回溯算法.md', '/algorithm/链表.md', '/algorithm/排序.md', '/algorithm/字符串匹配.md']
+        children: [
+          '/algorithm/链表.md',
+          '/algorithm/排序.md',
+          '/algorithm/二叉树的遍历.md',
+          '/algorithm/回溯算法.md',
+          '/algorithm/字符串匹配.md'
+        ]
       },
       {
         text: 'leetcode',
