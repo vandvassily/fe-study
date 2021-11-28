@@ -56,11 +56,11 @@ module.exports = {
           '/js_study/usage/debounce-throttle.md',
         ]
       },
-      {
-        text: 'CSS知识',
-        collapsable: false,
-        children: ['/css_study/']
-      },
+      // {
+      //   text: 'CSS知识',
+      //   collapsable: false,
+      //   children: ['/css_study/']
+      // },
       {
         text: '数据结构',
         collapsable: true,
@@ -84,18 +84,18 @@ module.exports = {
           '/algorithm/字符串匹配.md'
         ]
       },
-      {
-        text: 'leetcode',
-        collapsable: false,
-        link: '/leetcode/',
-        children: ['/leetcode/19.删除链表倒数第N个结点.md']
-      },
-      {
-        text: '正则',
-        collapsable: true,
-        link: '/regex/',
-        children: []
-      },
+      // {
+      //   text: 'leetcode',
+      //   collapsable: false,
+      //   link: '/leetcode/',
+      //   children: ['/leetcode/19.删除链表倒数第N个结点.md']
+      // },
+      // {
+      //   text: '正则',
+      //   collapsable: true,
+      //   link: '/regex/',
+      //   children: []
+      // },
       {
         text: 'Vue',
         collapsable: true,
@@ -147,6 +147,8 @@ module.exports = {
           '/other/sentry.md',
           '/other/vconsole.md',
           '/other/how-to-make-a-game.md',
+          '/other/how-to-design-a-component-lib.md',
+          '/other/how-to-design-a-web-monitor-system.md',
         ]
       },
       {
