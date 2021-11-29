@@ -131,6 +131,13 @@ module.exports = {
         ]
       },
       {
+        text: '网络',
+        collapsable: true,
+        link: '/network/',
+        children: [
+        ]
+      },
+      {
         text: '其他',
         collapsable: false,
         link: '/other/',

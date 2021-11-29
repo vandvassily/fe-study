@@ -1,10 +1,14 @@
-# fe-study
+# Javascript
 
-前端知识学习
+`Javascript` 基础知识。
 
-## JS知识
+- 《JavaScript 高级程序设计》（红宝书）
+  - 必刷，多看几遍也不为过。
+  - 最新的第四版增加了 `ES6` 的内容
+- [《冴羽的博客》](https://github.com/mqyqingfeng/Blog)
+  - 包含多个系列：深入系列、专题系列、underscore 系列、ES6 系列
 
-### JS基础
+## JS基础
 
 - [ ] [数据类型](basic/数据类型.md)
 - [ ] [this](basic/this.md)
