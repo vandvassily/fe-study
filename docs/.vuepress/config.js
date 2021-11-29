@@ -81,7 +81,8 @@ module.exports = {
           '/algorithm/排序.md',
           '/algorithm/二叉树的遍历.md',
           '/algorithm/回溯算法.md',
-          '/algorithm/字符串匹配.md'
+          '/algorithm/字符串匹配.md',
+          '/algorithm/dynamic-programming.md',
         ]
       },
       // {
@@ -149,6 +150,7 @@ module.exports = {
           '/other/how-to-make-a-game.md',
           '/other/how-to-design-a-component-lib.md',
           '/other/how-to-design-a-web-monitor-system.md',
+          '/other/what-is-Frond-End-Engineering.md',
         ]
       },
       {
