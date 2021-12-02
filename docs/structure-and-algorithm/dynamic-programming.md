@@ -27,17 +27,19 @@ const input = [
 ];
 
 // 动态规划
-function cost(map = []) {
-  if (map.length === 0) return 0;
-  const len = map.length;
-  const dp = [];
-  // 第一行不需要比较
-  dp.push(map[0].slice(0));
+function cost(grid = []) {
+  if (grid.length === 0) return 0;
+  const len = grid.length;
+  const firstRow = grid[0];
+  const dp = [[firstRow[0]]];
+  for (let j = 1; j < firstRow.length; j++) {
+    dp[0].push(dp[0][j - 1] + firstRow[j]);
+  }
 
   for (let i = 1; i < len; i++) {
-    const row = map[i];
+    const row = grid[i];
     const rowArray = [];
-    rowArray.push(row[0] + dp[i - 1][0]);
+    rowArray.push(dp[i - 1][0] + row[0]);
 
     for (let j = 1; j < row.length; j++) {
       const currValue = row[j];
@@ -48,7 +50,7 @@ function cost(map = []) {
     dp.push(rowArray);
   }
 
-  return dp[len - 1][len - 1];
+  return dp[len - 1][firstRow.length - 1];
 }
 
 console.log(cost(input));
