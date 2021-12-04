@@ -93,6 +93,7 @@ module.exports = {
         collapsable: true,
         link: '/typescript/',
         children: [
+          '/typescript/typescript配置.md'
         ]
       },
       {
@@ -100,6 +101,7 @@ module.exports = {
         collapsable: true,
         link: '/network/',
         children: [
+          '/network/security.md'
         ]
       },
       {
