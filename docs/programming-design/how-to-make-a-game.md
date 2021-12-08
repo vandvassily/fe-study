@@ -30,7 +30,7 @@
 
 参考官网DEMO，以及游戏样例，在现有的素材中，制作一个 `池塘养鱼` 游戏。
 
-<CodeSandbox sandboxUrl="https://codesandbox.io/embed/hilo-demo-fish-lyyzs?fontsize=14&hidenavigation=1&theme=dark" />
+<CodeSandbox sandboxUrl="https://codesandbox.io/embed/hilo-demo-fish-rdcqm?fontsize=14&hidenavigation=1&theme=dark" />
 
 ### 目标
 
@@ -38,10 +38,11 @@
 
 ### 动手实践
 
-// TODO: 
 1. 鼠标点击界面，小鱼移动到相应的位置。
+   1. 转换移动方向
 2. 等级达成，小鱼速度变快。
-
+   1. 改变等级
+   2. 粒子效果
 
 #### 过程中遇到的问题
 

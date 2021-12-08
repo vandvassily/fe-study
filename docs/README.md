@@ -3,7 +3,7 @@ home: true
 heroImage: /img/logo.jpg
 actions:
   - text: 阅读 →
-    link: /js_study/
+    link: /javascript/
     type: primary
 features:
   - title: 前端笔记

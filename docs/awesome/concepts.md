@@ -12,18 +12,31 @@
 
 [What is Jamstack?](https://jamstack.org/what-is-jamstack/)
 
-> 核心 1. 预渲染 2. 解耦
+> 核心思想： 1. 预渲染 2. 解耦
 
 [Jamstack，下一代Web建站技术栈？ - Starkwang的文章 - 知乎](https://zhuanlan.zhihu.com/p/281085404)
 
-    1. 使用网站生成器预渲染整个网站。`NextJS NuxtJS Gatsby`
-    2. 使用 Headless CMS(无头CMS) 管理动态内容 （data）。
-    3. 使用 HTTP API 增强网站的功能
-    4. 全站托管于 CDN 上
-    5. 原子化发布（每次发布都是一次全量、原子性的发布）
-    6. 灵活的文件缓存策略
-    7. 基于 Git 的全自动构建、部署流程
+::: tip
+1. 使用网站生成器预渲染整个网站。`NextJS NuxtJS Gatsby`
+2. 使用 Headless CMS(无头CMS) 管理动态内容 （data）。
+3. 使用 HTTP API 增强网站的功能
+4. 全站托管于 CDN 上
+5. 原子化发布（每次发布都是一次全量、原子性的发布）
+6. 灵活的文件缓存策略
+7. 基于 Git 的全自动构建、部署流程
+:::
 
 [JAMStack 架构简介](https://www.jianshu.com/p/400762fe6c8d)
 
 > [Headless Commerce（无头电商）与中台随想](https://blog.csdn.net/O2jW5joWV8OGMT7SKp/article/details/99781678)
+
+
+## 微前端
+
+1. [EMP --- YY](https://github.com/efoxTeam/emp)
+
+> YY中台团队开源
+
+2. [qiankun --- 阿里](https://github.com/umijs/qiankun)
+
+> 兼容方案最多
