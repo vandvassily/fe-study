@@ -1,5 +1,11 @@
 # Vue3
 
+## 初衷
+
+// TODO:
+
+### 优势
+
 相比于 `Vue2.0` 的优势：
 
 1. Composition API 组合式API
