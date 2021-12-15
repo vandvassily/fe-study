@@ -54,8 +54,40 @@ Vue实例化，初始化 事件 和 生命周期
 
 当组件在 `<keep-alive>` 内被切换时，activated 和 deactivated 这两个生命周期钩子函数将会被对应执行
 
-## 父子孙组件声明周期加载顺序
+### 父子孙组件声明周期加载顺序
 
 挂载阶段 `父 -> 子 -> 孙`
 
 销毁阶段 `孙 -> 子 -> 父`
+
+<CodeSandbox sandboxUrl="https://codesandbox.io/embed/lifecircle-print-mo7yh?fontsize=14&hidenavigation=1&theme=dark"/>
+
+## 源码
+
+vue实例初始化。 [源码](https://github.com/vuejs/vue/blob/v2.6.14/src/core/instance/init.js#L15)
+```js
+Vue.prototype._init = function (options?: Object) {
+  const vm: Component = this
+  // a uid
+  vm._uid = uid++
+
+  // ...
+  vm._self = vm
+  initLifecycle(vm)
+  initEvents(vm)
+  initRender(vm)
+  callHook(vm, 'beforeCreate') // 在 initState 之前，所以此生命周期钩子无法拿到 data
+  initInjections(vm) // resolve injections before data/props
+  initState(vm) // 涉及 data method props compute watch的初始化
+  initProvide(vm) // resolve provide after data/props
+  callHook(vm, 'created')
+
+  // ...
+  // 数据初始化后，当存在dom节点则执行挂载
+  if (vm.$options.el) {
+      vm.$mount(vm.$options.el)
+  }
+}
+```
+
+// TODO: initState initData
