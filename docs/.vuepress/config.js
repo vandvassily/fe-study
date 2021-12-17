@@ -69,6 +69,7 @@ module.exports = {
         children: [
           '/vue/lifeCircle.md',
           '/vue/响应式原理.md',
+          '/vue/watcher.md',
           '/vue/diff.md',
           '/vue/Vue3.md',
         ]
