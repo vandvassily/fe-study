@@ -60,6 +60,8 @@ export default class Watcher {
 }
 ```
 
+[源码](https://github.com/vuejs/vue/blob/v2.6.14/src/core/observer/scheduler.js)
+
 ```js
 /**
  * Push a watcher into the watcher queue.
@@ -93,20 +95,68 @@ export function queueWatcher (watcher: Watcher) {
         flushSchedulerQueue()
         return
       }
-      // 在异步队列执行时，进行更新
+      // 将队列回调推入到 EventLoop 的异步队列中
       nextTick(flushSchedulerQueue)
     }
   }
 }
+
+/**
+ * Flush both queues and run the watchers.
+ */
+function flushSchedulerQueue () {
+  currentFlushTimestamp = getNow()
+  flushing = true
+  let watcher, id
+
+  // Sort queue before flush.
+  // This ensures that:
+  // 1. Components are updated from parent to child. (because parent is always
+  //    created before the child)
+  // 2. A component's user watchers are run before its render watcher (because
+  //    user watchers are created before the render watcher)
+  // 一个组件中用户创建的观察者要先执行（因为用户创建的观察者先于render观察者创建）
+  // 3. If a component is destroyed during a parent component's watcher run,
+  //    its watchers can be skipped.
+  // 排序的目的是保证父组件先执行（因为父组件永远先于子组件创建，所以 父id < 子id）
+  queue.sort((a, b) => a.id - b.id)
+
+  // do not cache length because more watchers might be pushed
+  // as we run existing watchers
+  for (index = 0; index < queue.length; index++) {
+    watcher = queue[index]
+    if (watcher.before) {
+      watcher.before()
+    }
+    id = watcher.id
+    has[id] = null
+    // 执行 watcher实例 的 run 方法
+    watcher.run()
+    // ...
+  }
+
+  // keep copies of post queues before resetting state
+  const activatedQueue = activatedChildren.slice()
+  const updatedQueue = queue.slice()
+
+  // 重置状态
+  resetSchedulerState()
+
+  // call component updated and activated hooks
+  // 执行组件 activated 和 updated 钩子
+  callActivatedHooks(activatedQueue)
+  callUpdatedHooks(updatedQueue)
+  // ...
+}
 ```
 
-
+`nextTick` 方法将 `flushSchedulerQueue` 回调函数推入到 `callbacks` 数组中，待 `EventLoop` 中的同步代码执行完毕，`JS引擎` 清空 `异步任务队列` 时执行 `flushSchedulerQueue` 回调。
 [源码](https://github.com/vuejs/vue/blob/v2.6.14/src/core/util/next-tick.js#L87)
 
 ```js
 export function nextTick (cb?: Function, ctx?: Object) {
   let _resolve
-  // 维护了一个 callbacks 数组
+  // 维护了一个 callbacks 数组，里边存放的是 flushSchedulerQueue 回调函数
   callbacks.push(() => {
     if (cb) {
       try {
@@ -133,3 +183,23 @@ export function nextTick (cb?: Function, ctx?: Object) {
   }
 }
 ```
+
+`timerFunc` 异步执行 `flushCallbacks` ，执行并清空 `callbacks` 数组。
+[源码](https://github.com/vuejs/vue/blob/v2.6.14/src/core/util/next-tick.js#L13)
+
+```js
+function flushCallbacks () {
+  pending = false
+  const copies = callbacks.slice(0)
+  callbacks.length = 0
+  for (let i = 0; i < copies.length; i++) {
+    copies[i]()
+  }
+}
+```
+
+## 实际应用
+
+例如，当 `data.count` 的数值更改为 `1` ，通过 `this.count` 访问得到的数值也是 `1` 。但是 `DOM` 上的更新时异步执行的，我们在异步任务未执行完成前调用原生JS的方法去获取 `DOM` 上的数值，则还是更新之前的 `0` 。通过使用官方提供的 `nextTick` 方法，就可以在回调中获取到最新的值 `1` 。
+
+<CodeSandbox sandboxUrl="https://codesandbox.io/embed/vue2-nexttick-wzdzk?fontsize=14&hidenavigation=1&theme=dark" />
