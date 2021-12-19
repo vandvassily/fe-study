@@ -1,18 +1,12 @@
 # Vue3
 
-## 初衷
+## 新增的功能
 
-// TODO:
-
-### 优势
-
-相比于 `Vue2.0` 的优势：
-
-1. Composition API 组合式API
-2. TS的支持
-3. Tree-Shaking
-4. 编译模板优化
-5. 数据绑定使用 `proxy` 代替 `defineProperty`
+1. Composition API 组合式API，
+2. Tree-Shaking
+3. 数据绑定使用 `proxy` 代替 `defineProperty`
+4. TS的支持
+5. 编译模板优化
 
 ## Composition API 组合式API
 
@@ -33,6 +27,14 @@
 - 不会在后续更新时不断产生大量的内联函数而影响引擎优化或是导致 GC 压力；
 - 不需要总是使用 useCallback 来缓存传给子组件的回调以防止过度更新；
 - 不需要担心传了错误的依赖数组给 useEffect/useMemo/useCallback 从而导致回调中使用了过期的值 —— Vue 的依赖追踪是全自动的。
+
+## Tree-Shaking
+
+很多时候，我们并不需要 vue提供的所有功能。在 vue 2 并没有方式排除掉，但是 3.0 都做成了按需引入。
+
+一些功能，包括 `v-model` `<transition>` 等，都支持 `tree-shaking` 。
+
+这样打包体积更小。
 
 ## 参考资料
 
