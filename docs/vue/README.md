@@ -7,26 +7,28 @@ Vue的官方文档写的特别完善，如果有疑惑，请查阅文档。 传�
 ### Vue
 
 1. 组件化思想
-2. 生命周期
-3. 模板语法
-4. 双向绑定的原理
+2. 模板语法
+3. 生命周期
+4. 响应式的原理
    1. ES5的 `defineProperty`
-   2. `v-model` 的语法糖
-5. VNode 虚拟DOM
-6. Diff算法
-7. 观察者模式
+   2. 观察者模式
+5. 双向绑定的原理
+   1. `v-model` 的语法糖
+6. VNode 虚拟DOM
+7. Diff算法
+   1. vue2 双端比较
+8. keep-alive 组件
 
 :::tip
 数据结构与算法
-- 最长公共子序列
-  - Diff算法
+- 最长递增子序列
+  - Vue3 Diff算法
 - LRU
-  - vue 官方 `keep-alive` 组件
+  - 官方 `keep-alive` 组件
 
 设计模式
-- 观察者模式
+- 观察者模式/发布订阅模式
   - Dep Watcher Observer
-- 发布订阅模式
   - EventBus
 :::
 
@@ -34,7 +36,7 @@ Vue的官方文档写的特别完善，如果有疑惑，请查阅文档。 传�
 
 1. hash模式
 2. history模式
-3. `popstate` `pushstate` `replaceState`
+3. `popstate` `pushState` `replaceState`
 
 ### Vuex
 
