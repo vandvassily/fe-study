@@ -72,6 +72,7 @@ module.exports = {
           '/vue/nextTick.md',
           '/vue/watcher.md',
           '/vue/diff.md',
+          '/vue/keep-alive.md',
           '/vue/Vue3.md',
         ]
       },
