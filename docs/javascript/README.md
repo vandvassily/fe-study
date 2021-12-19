@@ -7,6 +7,10 @@
   - 最新的第四版增加了 `ES6` 的内容
 - [《冴羽的博客》](https://github.com/mqyqingfeng/Blog)
   - 包含多个系列：深入系列、专题系列、underscore 系列、ES6 系列
+  - 推荐前端新人多看 `深入系列` 
+- 《JavaScript语言精髓与编程实践》周爱民老师
+  - 能帮助你真正的理解JavaScript
+  - 非入门书籍
 
 ## JS基础
 
