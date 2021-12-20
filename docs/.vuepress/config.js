@@ -107,8 +107,9 @@ module.exports = {
         collapsable: true,
         link: '/network/',
         children: [
-          '/network/security.md',
+          '/network/tcp.md',
           '/network/https.md',
+          '/network/security.md',
         ]
       },
       {

@@ -3,12 +3,14 @@
 在浏览器地址栏输入URL后，浏览器发生了什么？
 
 1. 导航和请求
-   1. DNS查询
-   2. TCP链接
-   3. TLS链接，即HTTPS中的安全握手
-   4. http请求
+   1. 查询本地是否有缓存
       1. 强缓存和协商缓存
-   5. http响应
+   2. 解析主机名
+   3. DNS查询，查询IP
+   4. TCP链接
+   5. SSL/TLS链接，即HTTPS中的安全握手
+   6. http请求
+   7. http响应
 2. HTML解析   HTML parse
    1. 构建DOM树
    2. 预加载JS和CSS
