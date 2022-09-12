@@ -1,0 +1,1 @@
+import{c as e,o as t,a as o,b as a}from"./app.9bc35547.js";import{_ as c}from"./plugin-vue_export-helper.5a098b48.js";const r={},s={id:"leetcode",tabindex:"-1"},_=o("a",{class:"header-anchor",href:"#leetcode","aria-hidden":"true"},"#",-1),d=a(" leetcode"),n=[_,d];function i(h,l){return t(),e("h1",s,n)}var m=c(r,[["render",i]]);export{m as default};

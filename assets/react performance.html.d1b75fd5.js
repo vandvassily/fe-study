@@ -1,0 +1,1 @@
+const e={key:"v-3b5c79b6",path:"/react/react%20performance.html",title:"React \u6027\u80FD\u4F18\u5316",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"react/react performance.md",git:{updatedTime:1662960794e3,contributors:[{name:"vandvassily",email:"zhs25427199@gmail.com",commits:1}]}};export{e as data};

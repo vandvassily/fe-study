@@ -1,0 +1,1 @@
+const e={key:"v-3488e09a",path:"/react/jsx.html",title:"JSX\u662F\u4EC0\u4E48\uFF1F",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u53C2\u8003",slug:"\u53C2\u8003",children:[]}],filePathRelative:"react/jsx.md",git:{updatedTime:1662960794e3,contributors:[{name:"vandvassily",email:"zhs25427199@gmail.com",commits:1}]}};export{e as data};

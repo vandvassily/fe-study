@@ -1,0 +1,1 @@
+const e={key:"v-dc35a5fe",path:"/regex/",title:"\u6B63\u5219\u5B66\u4E60",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u5B66\u4E60\u7F51\u7AD9",slug:"\u5B66\u4E60\u7F51\u7AD9",children:[]}],filePathRelative:"regex/README.md",git:{updatedTime:1662960794e3,contributors:[{name:"vandvassily",email:"zhs25427199@gmail.com",commits:1}]}};export{e as data};

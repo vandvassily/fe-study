@@ -1,0 +1,1 @@
+const e={key:"v-ec98fdec",path:"/awesome/Taro.html",title:"Taro",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"awesome/Taro.md",git:{updatedTime:1662960794e3,contributors:[{name:"vandvassily",email:"zhs25427199@gmail.com",commits:1}]}};export{e as data};

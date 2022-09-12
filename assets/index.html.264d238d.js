@@ -1,0 +1,1 @@
+const e={key:"v-e4cb1150",path:"/other/",title:"\u5176\u4ED6",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"IoC",slug:"ioc",children:[]}],filePathRelative:"other/README.md",git:{updatedTime:1662960794e3,contributors:[{name:"vandvassily",email:"zhs25427199@gmail.com",commits:1}]}};export{e as data};
